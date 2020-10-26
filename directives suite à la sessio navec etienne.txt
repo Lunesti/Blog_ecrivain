@@ -1,8 +1,0 @@
-respecter le pattern mvc sur la page d'accueil
-
-lien ver la page commentaire pour chaque article
-
-une vue pour chacun (modifier, ajouter, supprimer)
-
-
-Afficher l'article
