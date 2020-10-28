@@ -17,18 +17,30 @@
     <title>Blog</title>
 </head>
 <body>
+<?php $title = 'Mon blog'; ?>
+
+
+<h1>Blog</h1>
+
+<p>Derniers billets du blog :</p>
+
 <?php
-while ($data = $posts->fetch()) {
+while ($data = $posts->fetch())
+{
 ?>
-  <h1>Page d'accueil</h1>
-      <section class="posts">
-          <div class="post">
-            <p><a href="index.php?billet=<?php echo $data['id']; ?>"><?php print htmlspecialchars($data['title'])?></a> par <?= htmlspecialchars($data['author']);?></p>
-            <p class="content"><?= htmlspecialchars($data['content']);?></p><br><br>
-          </div>
-          <?php
+    <div class="news">
+        <h3><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a></h3>
+        
+        <p>
+            <?= nl2br(htmlspecialchars($data['content'])) ?>
+            <br />
+            <p>Ecrit le : <?= $data['creation_date_fr'] ?></p>
+        </p>
+    </div>
+<?php
 }
+$posts->closeCursor();
 ?>
-      </section> 
+
 </body>
 </html>
