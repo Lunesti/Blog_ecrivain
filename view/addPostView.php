@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,26 +14,39 @@
       tinycomments_author: 'Author name',
     });
   </script>
+   <link rel="stylesheet" href= "public/css/style.css">   
+    <link rel="stylesheet" href="public/css/responsive.css">
 	<title>Blog</title>
 </head>
 <body>
 
-<?php
-while ($data = $newPost->fetch()) {
-  ?>
 
-<form action="../index.php?action=post" method="post">
-<?php
-}
-?>
-    <p>
-        <label for="author"> Auteur de l'article : <input type="text" name="author" id="author" required></label>
-        <label for="title"> Titre du billet : <input type="text" name="title" id="title" required></label><br>
-        <textarea name="content" cols="30" rows="10"></textarea><br>
-        <input type="submit" name="submit">
-    </p>
-</form>
+    <header>
+        <p>Jean FORTEROCHE</p>
+        <nav>
+            <ul>
+                <li> <img src="https://img.icons8.com/color/48/000000/home.png"/><a href="">Accueil</a></li>
+                <li> <img src="https://img.icons8.com/color/48/000000/open-book.png"/><a href="">Chapitres</a></li>
+                <li> <img src="https://img.icons8.com/color/48/000000/contact-card.png"/><a href="">Contact</a></li>
+                <li> <img src="https://img.icons8.com/color/48/000000/login-rounded-right.png"/><a href="view/connexionView.php">Connexion </a> <br>
+                    </li>
+                <li> <img src="https://img.icons8.com/color/48/000000/administrator-male--v1.png"/>Espace administrateur</li>
+            </ul>
+        </nav>
+    </header>
 
+    <div class="bloc-page">
+        <section class="post">
+            <form action="../index.php?action=addPost" method="post">
+                <p>
+                    <label for="author"> Auteur de l'article : <input type="text" name="author" id="author" required></label>
+                    <label for="title"> Titre du billet : <input type="text" name="title" id="title" required></label><br><br><br>
+                    <textarea name="content" cols="30" rows="10"></textarea><br>
+                    <input type="submit" name="submit">
+                </p>
+            </form>
+        </section>
+    </div>
 
 </body>
 </html>
