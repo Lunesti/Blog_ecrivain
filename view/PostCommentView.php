@@ -27,7 +27,14 @@
                     <li> <img src="https://img.icons8.com/color/48/000000/home.png"/><a href="">Accueil</a></li>
                     <li> <img src="https://img.icons8.com/color/48/000000/open-book.png"/><a href="">Chapitres</a></li>
                     <li> <img src="https://img.icons8.com/color/48/000000/contact-card.png"/><a href="">Contact</a></li>
-                    <li> <img src="https://img.icons8.com/color/48/000000/login-rounded-right.png"/><a href="view/connexionView.php">Connexion </a> <br>
+                    <li>  <?php
+                        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                            //var_dump($_SESSION['pseudo']);
+                            print $_SESSION['pseudo'];                                
+                        } else {?>
+                            <img src="https://img.icons8.com/color/48/000000/login-rounded-right.png"/><a href="view/connexionView.php">Connexion </a> <br> 
+                            <?php
+                        }?>
                     </li>
                     <li> <img src="https://img.icons8.com/color/48/000000/administrator-male--v1.png"/>Espace administrateur</li>
                 </ul>
@@ -51,19 +58,30 @@
                     <div clas="content">
                         <?= htmlspecialchars($post['title']) ?>
                         <em>le <?= $post['creation_date_fr'] ?></em>
-                        <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+                        <p><?= nl2br(htmlspecialchars($post['content'])); ?></p><br>
+                        <h2>Commentaires</h2> 
+                        <?= htmlspecialchars($comment['author']) ?>
+                        <em>le <?= $comment['comment_date_fr'] ?></em>
+                        <p> - <?= nl2br(htmlspecialchars($comment['comment'])); ?></p><br>
                     </div>
-
-                    <h2>Commentaires</h2>
                     
+                    <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+                        <label for="comment">Commentaire</label><br />
                         <?php
                         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                                $_SESSION['pseudo'];
-                                include('commentairesView.php'); 
-                                
-                            } else {
-                                die("Vous devez vous connecter pour ajouter un commentaire !");
-                            }?>
+                            //var_dump($_SESSION['pseudo']);
+                            ?>
+                                <br><br>
+                                <?= $_SESSION['pseudo'];?>
+                                <textarea id="comment" name="comment"></textarea>                     
+                                <input type="submit"/>
+                        </form>
+                        <?php                     
+                        } else {
+                            var_dump($_SESSION['pseudo']);
+                            die("Vous devez vous connecter pour ajouter un commentaire !");
+                        }
+                        ?>
                 </div>  
             </section>            
         </div>  

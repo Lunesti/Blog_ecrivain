@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Design blog</title>
-    <link rel="stylesheet" href= "../public/css/connexionView.css">   
-    <link rel="stylesheet" href="../public/css/responsive.css">
+    <link rel="stylesheet" href= "../../Public/css/connexionView.css">   
+    <link rel="stylesheet" href="../../Public/css/responsive.css">
 </head>
 
 <body>
@@ -25,12 +25,11 @@
             </nav>
             
         </header>
-
+        <div class="bloc-page">
             <section class="inscription">
-                
-                <form action="../index.php?action=listPosts" method="post">
+                <form action="../../index.php?action=listPosts" method="post">
                 <p>Connexion à votre espace</p>
-                <p><img src="../public/img/user.png" alt="user"></p>
+                <p><img src="../../public/img/user.png" alt="user"></p>
                     <p>
                         <label for="pseudo"> <input type="text" name="pseudo" placeholder="Pseudo" required></label>
                         <label for="password"> <input type="text" name="pass"  placeholder="Password" required></label>
@@ -40,8 +39,9 @@
                 </form>
             </section>
 
-        <footer></footer>
-    </div>
+            <footer></footer>
+        </div>
+            
 </body>
 
 </html>
