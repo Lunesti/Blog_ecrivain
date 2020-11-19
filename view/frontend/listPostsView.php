@@ -1,53 +1,37 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <meta charset = 'UTF-8'>
-        <title>Blog</title>
-        <link rel="stylesheet" href= "public/css/style.css">   
-        <link rel="stylesheet" href="public/css/responsive.css">
+        <meta charset="utf-8" />
+        <title><?= $title ?></title>
+        <link href="public/css/style.css" rel="stylesheet" /> 
+        <link href="public/css/responsive.css" rel="stylesheet" /> 
     </head>
+        
     <body>
     <?php ob_start(); ?>
-    <?php $title = 'Mon blog'; ?>
-    
-    <header>
-    
-        <p>Jean FORTEROCHE</p>
-        <nav>
-            <ul>
-                <li> <img src="https://img.icons8.com/color/48/000000/home.png"/><a href="">Accueil</a></li>
-                <li> <img src="https://img.icons8.com/color/48/000000/open-book.png"/><a href="">Chapitres</a></li>
-                <li> <img src="https://img.icons8.com/color/48/000000/contact-card.png"/><a href="">Contact</a></li>
-                <li> <img src="https://img.icons8.com/color/48/000000/login-rounded-right.png"/><a href="View/frontend/connexionView.php">Connexion </a> <br>
-                    </li>
-                <li> <img src="https://img.icons8.com/color/48/000000/administrator-male--v1.png"/><a href="view/AdminView.php">Espace administrateur</a></li>
-            </ul>
-        </nav>
-        </header>
-        <div class="bloc-page">
-            <h1>Billet simple pour l'Alaska</h1>
-            <p class="intro">Bienvenue, je publierais régulièrement chacun des chapitres de mon nouveau roman "Billet simple pour l'Alaska".
-                N'hésitez-pas à commenter en partagant vos avis et ressentie.
-                Je vous souhaites une bonne lecture et une bonne découverte de chacune des aventures de mon merveilleux roman.<br><br>
-                <span class="ecrivain">Jean FORTEROCHE</span>
-            </p>
-            <div class="banniere"><img src="public/img/banniere.jpg" alt="banniere"></div>
+        <?php include('header.php');?>        
+        <div class='bloc-page'>
+            <?php include('intro.php');?>
             <section class="billets">
-                <div class="chapitres">
-                    <div clas="content">
-
-                         <?php while ($data = $posts->fetch()) {?>
-                            <p class="titre"><?= htmlspecialchars($data['title']); ?>, écrit le : <?= $data['creation_date_fr']; ?> </p> 
-                            <p><?= nl2br(htmlspecialchars($data['content'])); ?></p><br />
-                            <p><a class="commentaires" href="index.php?action=post&amp;id=<?= $data['id'] ?>">Acceder aux commentaires</a></p>
-                        <?php 
-                        }$posts->closeCursor();
+                <div class="chapters">
+                    <div class="content">
+ 
+                        <?php foreach($posts as $data) : 
+                            //var_dump($data) ?>
+                            <p class="title"><?= htmlspecialchars_decode($data['title']); ?>  <span class="date"> le <?= $data['creation_date_fr']; ?> </span></p>
+                            <p class="element"><?= nl2br(htmlspecialchars_decode($data['content'])); ?></p>
+                            <p><a class="comment" href="index.php?action=post&amp;id=<?= $data['id'] ?>">Acceder aux commentaires</a></p> 
+                            <br />
+                        <?php
+                            endforeach;
                         ?>
-                        <?php $content = ob_get_clean(); ?>
-                        <?php require('template.php'); ?>
-                    </div>
-                </div>
-            </section>    
-        </div>                   
+                    </div>    
+                </div>                  
+            </section>
+        </div>
+        <?php $content = ob_get_clean(); ?>
+        <?php include('html.php'); ?>   
     </body>
 </html>
+
 

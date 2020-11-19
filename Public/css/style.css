@@ -1,0 +1,152 @@
+@font-face {
+    font-family: 'Antipasto-Pro-Regular-trial';
+    src: url('/Public/fonts/Antipasto-Pro-Regular-trial.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #3A6476;
+}
+
+* {
+    font-family: 'Antipasto-Pro-Regular-trial', sans-serif;
+}
+
+
+/*Couleurs  des fonts*/
+
+li a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.return_post {
+    color: #000;
+}
+
+a {
+    color: purple;
+    text-decoration: none;
+}
+
+header p,
+ul li {
+    color: #FFF;
+}
+
+.content p {
+    color: #000;
+}
+
+
+/*Tailles*/
+
+p {
+    font-size: 1.2em;
+}
+
+.bloc-page {
+    width: 1200px;
+    margin: auto;
+    background: #FFF;
+}
+
+header {
+    background: #222222;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav {
+    margin-right: 5%;
+}
+
+ul {
+    display: flex;
+}
+
+ul li {
+    list-style: none;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+li img {
+    max-width: 20%;
+    margin-right: 5px;
+}
+
+
+/*Banniere*/
+
+.banniere {
+    text-align: center;
+}
+
+.banniere img {
+    width: 70%;
+    padding-bottom: 50px;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-decoration: underline;
+    text-align: center;
+    padding: 0 0 30px 0;
+}
+
+
+/*Les billets*/
+
+.billets {
+    width: 90%;
+    height: 1500px;
+    margin-left: 5%;
+}
+
+.date {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.chapters {
+    margin-top: 20px;
+}
+
+.content {
+    border-radius: 5px;
+}
+
+.title {
+    height: 30px;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+}
+
+section.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.description {
+    text-align: center;
+    width: 70%;
+}
+
+.comment {
+    color: purple;
+    font-style: italic;
+}
+
+.writer {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+}

@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Antipasto-Pro-Regular-trial';
+    src: url('../fonts/Antipasto-Pro-Regular-trial.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #3A6476;
+}
+
+* {
+    font-family: "Antipasto-Pro-Regular-trial", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.inscrire {
+    font-size: 0.7em;
+    color: #000;
+}
+
+.lien_inscrire {
+    color: rgb(110, 33, 110);
+    text-decoration: underline;
+}
+
+
+/*Couleurs  des fonts*/
+
+header p,
+ul li {
+    color: #FFF;
+}
+
+
+/*Tailles*/
+
+p {
+    font-size: 1.5em;
+}
+
+.bloc-page {
+    width: 1200px;
+    margin: auto;
+    background: #FFF;
+}
+
+header {
+    background: #222222;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav {
+    margin-right: 5%;
+}
+
+ul {
+    display: flex;
+}
+
+ul li {
+    list-style: none;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+li img {
+    max-width: 20%;
+    margin-right: 5px;
+}
+
+.inscription {
+    width: 30%;
+    height: 300px;
+    margin-left: 35%;
+    background: #FFF;
+    display: flex;
+    justify-content: center;
+}
+
+form p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form p input {
+    margin-bottom: 15px;
+}

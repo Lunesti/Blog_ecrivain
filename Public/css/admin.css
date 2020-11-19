@@ -1,0 +1,88 @@
+/*Partie réservé à l'admin'*/
+
+@font-face {
+    font-family: 'Antipasto-Pro-Regular-trial';
+    src: url('/Public/fonts/Antipasto-Pro-Regular-trial.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #3A6476;
+}
+
+* {
+    font-family: 'Antipasto-Pro-Regular-trial', sans-serif;
+}
+
+li a {
+    text-decoration: none;
+}
+
+.return_post {
+    color: #000;
+}
+
+
+/*Couleurs  des fonts*/
+
+a {
+    color: purple;
+    text-decoration: none;
+}
+
+header p,
+ul li {
+    color: #FFF;
+}
+
+.content p {
+    color: #000;
+}
+
+
+/*Tailles*/
+
+p {
+    font-size: 1.2em;
+}
+
+.bloc-page {
+    width: 1200px;
+    margin: auto;
+    background: #FFF;
+}
+
+
+/*Les billets*/
+
+.billets {
+    width: 90%;
+    height: 1500px;
+    margin-left: 5%;
+}
+
+.admin {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.create {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    margin: 0 5% 0 5%;
+}
+
+.addPost {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #3A6476;
+}
+
+.content {
+    height: 150px;
+}
