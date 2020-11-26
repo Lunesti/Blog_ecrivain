@@ -1,10 +1,5 @@
 /*Partie réservé à l'admin'*/
 
-@font-face {
-    font-family: 'Antipasto-Pro-Regular-trial';
-    src: url('/Public/fonts/Antipasto-Pro-Regular-trial.ttf');
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -13,7 +8,7 @@ body {
 }
 
 * {
-    font-family: 'Antipasto-Pro-Regular-trial', sans-serif;
+    font-family: sans-serif;
 }
 
 li a {
@@ -37,10 +32,6 @@ ul li {
     color: #FFF;
 }
 
-.content p {
-    color: #000;
-}
-
 
 /*Tailles*/
 
@@ -50,6 +41,7 @@ p {
 
 .bloc-page {
     width: 1200px;
+    height: 1800px;
     margin: auto;
     background: #FFF;
 }
@@ -57,9 +49,9 @@ p {
 
 /*Les billets*/
 
-.billets {
+.posts {
     width: 90%;
-    height: 1500px;
+    height: 300px;
     margin-left: 5%;
 }
 
@@ -77,12 +69,16 @@ p {
     margin: 0 5% 0 5%;
 }
 
-.addPost {
+p.title {
     text-transform: uppercase;
     font-weight: bold;
     color: #3A6476;
+    border-bottom: 0;
 }
 
-.content {
-    height: 150px;
+p.titleChapters {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #3A6476;
+    border-bottom: 2px solid #000;
 }

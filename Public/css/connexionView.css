@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'Antipasto-Pro-Regular-trial';
-    src: url('../fonts/Antipasto-Pro-Regular-trial.ttf');
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -11,7 +6,7 @@ body {
 }
 
 * {
-    font-family: "Antipasto-Pro-Regular-trial", sans-serif;
+    font-family: sans-serif;
 }
 
 a {

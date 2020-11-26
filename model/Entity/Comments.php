@@ -1,48 +1,55 @@
 <?php
 
-
 class Comments {
 
-  private $id;
-  private $postId;
-  private $author;
-  private $comment;
-  private $comment_date;
+    //Attributs  
+    private $_id;
+    private $_postId;
+    private $_author;
+    private $_comments;
+    private $_comment_date;
+    private $_report;
 
-    /*ID*/
+    //GETTERS
+    public function getReport() {
+        return $this->_report;
+    }
+
     public function getId() {
-        return $this->id;
+        return $this->_id;
     }
 
-    /*POSTID*/
      public function getPostId() {
-        return $this->post_id;
+        return $this->_postId;
     }
 
-    /*AUTHOR*/
     public function getAuthor() {
       return $this->author;
     }
 
-    public function setAuthor($author) {
-        $this->author = $author;
+     public function getComments() {
+        return $comments->_comment;
     }
 
-    /*COMMENT*/
-    public function getComment() {
-        return $comment->comment;
-    }
-
-    public function setComment($comment) {
-        $this->comment = $cmment;
-    }
-
-    /*COMMENT_DATE*/
     public function getDate() {
         return $date->comment_date;
     }
 
+    //SETTERS
+    public function setAuthor($author) {
+        $this->_author = $author;
+    }
+
+    public function setComment($comment) {
+        $this->_comment = $cmment;
+    }
+
+
     public function setDate($date) {
-        $this->comment_date = $date;
+        $this->_comment_date = $date;
+    }
+
+    public function setReport($report) {
+        $this->_report = $report;
     }
 }

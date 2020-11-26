@@ -6,10 +6,16 @@ require('controller/frontend.php');
 //Afficher les posts
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
-        listPosts();
+        readAll();
+       
     }
     elseif($_GET['action'] == 'post') {
-        post($_GET['id']);
+        
+        read($_GET['id']);
+    }
+    elseif($_GET['action'] == 'report') {
+        report();
+        //var_dump(report($_POST['pseudo'], $_POST['comment']));
     }
 
     //Ajouter un commentaire
@@ -21,35 +27,41 @@ if (isset($_GET['action'])) {
         }
     }
     //Ajouter un post
-    elseif ($_GET['action'] == 'addPost') {
+    elseif ($_GET['action'] == 'newPost') {
         if (isset($_POST['title']) && isset($_POST['content'])) {
             if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                addNewPost($_POST['title'], $_POST['content']);
+                //var_dump(addNewPost($_POST['title'], $_POST['content']));
+                
+                create($_POST['title'], $_POST['content']);
+                var_dump(create($_POST['title'], $_POST['content']));
             } else {
                 print "Veuillez remplir tout les champs !";
             }
         } else {
             print "Champs titre et contenu inexistant";
         }
+
     //Afficher la page de modification d'article
-    } elseif ($_GET['action'] == 'edit') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            editPost($_GET['id']);
-        } else {
-            print "Les champs title et content n'existent pas !";
-        }
+    } elseif ($_GET['action'] == 'updatePost') {
+        updatePage();
     }
-    //Modifier un commentaire
-    elseif ($_GET['action'] == 'updated') {
+    //Modifier un post
+    elseif ($_GET['action'] == 'postUpdated') {
         if (isset($_POST['title']) && isset($_POST['content'])) {
             if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                updatePost($_GET['id']);
+                update($_POST['title'], $_POST['content']);
             } else {
                 print "Les champs sont pas remplis !";
             }
         }
+    //Supprimer un post    
     } elseif ($_GET['action'] == 'delete') {
-        delete($_GET['id']);
+        deletePost($_GET['id']);
+    }
+
+    //Afficher la page d'inscription 
+    elseif($_GET["action"] == "subscription") {
+        subscription();
     }
     //Inscription
     elseif ($_GET['action'] == 'subscribed') {
@@ -64,33 +76,52 @@ if (isset($_GET['action'])) {
             print "Veuillez remplir tout les champs !";
         }
     }
+
+    //Afficher la page de connexion User
+    elseif($_GET['action'] == "connexion") {
+       userConnexion();
+    }
+
+    //Afficher la page de connexion Admin
+    elseif($_GET['action'] == "connexionAdmin") {
+        adminConnexion();
+    }
+
+    //Afficher la page Admin
+    elseif($_GET['action'] == 'admin') {
+        connect($_SESSION['username']);
+        adminPage();
+    }
+
     //Connexion
     elseif ($_GET['action'] == 'connected') {
         if (isset($_POST['username']) && isset($_POST['userpass'])) {
             if (!empty($_POST['username']) && !empty($_POST['userpass'])) {
-                userLogged($_POST['username']);
+                connect($_POST['username']);
             } else {
                 print "Veuillez remplir tout les champs !";
             }
         } else {
             print "Les champs n'existent pas";
         }
-    } elseif ($_GET['action'] == 'post') {
+
+    } elseif ( $_GET['action'] == 'adminpost')  {
+
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            post($_GET['id']);
+            read($_GET['id']);
         } else {
             echo 'Erreur : aucun identifiant de billet envoyé';
         }
-    } //Deconnexion
+    }
+  
+    //Deconnexion
     elseif($_GET['action'] == 'disconnected') {
-        userLogOut($_SESSION['username']);
+       logOut($_SESSION['username']);
     }
 }
     
 else {
-    listPosts();
+    readAll();
 }
-
- //Modifier un post
 
 

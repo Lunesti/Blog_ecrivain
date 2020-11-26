@@ -23,9 +23,9 @@
  
             <h3>Modifiez un billet existant à l'aide des champs ci-dessous :</h3>
             
-            <form action="index.php?action=updated&amp;id=<?= $post['id']?>" method="POST">
-                <p><label for="title">Titre :</label><input type="text" name="title" value="<?= htmlspecialchars($post['title'])?>"></p>
-                <p><label for="content">Saisissez l'article modifié :</label><textarea name=" content" ><?= htmlspecialchars($post['content'])?></textarea></p>
+            <form action="index.php?action=postUpdated" method="POST">
+                <p><label for="title">Titre :</label><input type="text" name="title" value=""></p>
+                <p><label for="content">Saisissez l'article modifié :</label><textarea name=" content" ></textarea></p>
                 <p><input type="submit"></p>
             </form>
         </body>

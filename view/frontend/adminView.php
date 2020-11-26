@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Design blog</title>
-    <link rel="stylesheet" href= "../../Public/css/connexionView.css">   
-    <link rel="stylesheet" href="../../Public/css/responsive.css">
+    <link rel="stylesheet" href= "Public/css/connexionView.css">   
+    <link rel="stylesheet" href="Public/css/responsive.css">
 </head>
 
 <body>
@@ -13,18 +13,13 @@
 
         <div class="bloc-page">
             <section class="inscription">
-                <form action="../../index.php?action=connected" method="post">
+                <form action="index.php?action=connected" method="post">
                 <p>Connexion à votre espace</p>
-                <p><img src="../../public/img/user.png" alt="user"></p>
-                    <p>   
-                        <?php if(isset($error)) {
-                            print $error;
-                        }
-                        ?>                 
+                <p><img src="public/img/user.png" alt="user"></p>
+                    <p>                  
                         <label for="username"> <input type="text" name="username" placeholder="Username"></label>
                         <label for="userpass"> <input type="text" name="userpass"  placeholder="Password"></label>
                         <input type="submit" id="submit" name="submit" value="Connexion">
-                        <span class="inscrire">Pas encore inscrit ? <a class="" href="inscriptionView.php">S'inscrire</a></span>
                     </p>
                 </form>
             </section>

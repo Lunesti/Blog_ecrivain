@@ -1,44 +1,54 @@
 <?php
 
 require_once('model/Manager.php');
+require_once('Entity/Comments.php');
 
 class CommentManager {
 
-public function getComments($postId){
-    $connexion = new Manager();
-    $db = $connexion->dbConnect();
-    $req = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comment WHERE post_id = ? ORDER BY comment_date DESC');
-    $req->execute(array($postId));
-    $comments = $req->fetchAll();
-    return $comments;
-}
+     //Afficher les commentaires
+    public function getComments(){
+        $connexion = new Manager();
+        $db = $connexion->dbConnect();
+        $req = $db->query('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comment ORDER BY comment_date DESC')
+        or die(print_r($db->errorInfo()));
+        $req->setFetchMode(\PDO::FETCH_CLASS, Comments::class);
+        $comments = $req->fetchAll();
+        //var_dump($comments);
+        return $comments;
+    }
 
-public function postComment($postId, $author, $comment){
-    $connexion = new Manager();
-    $db = $connexion->dbConnect();
-    $comments = $db->prepare('INSERT INTO comment(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
-    $affectedLines = $comments->execute(array($postId, $author, $comment));
-    return $affectedLines;
-}
-}
+    //Afficher les commentaires associés à un post
+    public function getComment($postId){
+        $connexion = new Manager();
+        $db = $connexion->dbConnect();
+        $req = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comment WHERE post_id = ? ORDER BY comment_date DESC');
+        $req->setFetchMode(\PDO::FETCH_CLASS, Comments::class);
+        $req->execute(array($postId));
+        $comment = $req->fetchAll();
+        return $comment;
+    }
 
-class Members {
+    //Ajouter un commentaire
+    public function postComment($comment){
+        $connexion = new Manager();
+        $db = $connexion->dbConnect();
+        $comments = $db->prepare('INSERT INTO comment(post_id, author, comment, comment_date) VALUES(:postId, :author, :comment, NOW())');
+        $comments->execute(array( 
+            "postId"=> $_GET['id'],
+            "author"=> $_SESSION['username'],
+            "comment"=> $_POST['comment']
+        ));
+        return $comments;
+    }
 
-public function newUser($pseudo, $pass, $email) {
-    $connexion = new Manager();
-    $db = $connexion->dbConnect();
-    $req = $db->prepare('INSERT INTO members(pseudo, pass, email, inscription_date) VALUES(?, ?, ?, CURDATE())');
-    $suscribe = $req->execute(array($pseudo, $pass, $email));    
-    return $suscribe;
-}
-
-public function getConnexion($username) {
-    //  Récupération de l'utilisateur et de son pass haché
-    $connexion = new Manager();
-    $db = $connexion->dbConnect();
-    $req = $db->prepare('SELECT id, user_role, pass FROM members WHERE pseudo = ?');
-    $req->execute(array($username));
-    $login = $req->fetch();
-    return $login;
-}     
+    //récupérer l'id user et l'id comment pour un signalement
+    public function reportComment($report) {
+        $connexion = new Manager();
+        $db = $connexion->dbConnect();
+        $req = $db->query("SELECT members.pseudo, comment.comment FROM members INNER JOIN comment ON members.id = comment.id ");
+        $req->setFetchMode(\PDO::FETCH_CLASS, Comments::class);
+        $report = $req->fetch();
+        var_dump($report);
+        return $report;     
+    }
 }
