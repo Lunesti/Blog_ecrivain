@@ -8,7 +8,7 @@
         <div class="chapters">
             <div class="content">
             <?php foreach
-                ($posts as $data) :
+                ($listposts as $data) :  //var_dump($data);
              ?>
                 <p class="title"><?= htmlspecialchars_decode($data->title); ?>  <span class="date"> le <?= $data->creation_date_fr; ?> </span></p>
                <?= htmlspecialchars_decode($data->content); ?>

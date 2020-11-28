@@ -1,12 +1,15 @@
 <?php
 session_start();
-require('controller/frontend.php');
-
+require('controller/Controller_CRUD.php');
+require('controller/Controller_subscribe.php');
+require('controller/Controller_connexion.php');
+require('controller/Controller_comment.php');
+require('controller/Controller_report.php');
 
 //Afficher les posts
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
-        readAll();
+        readAll($_POST['title'], $_POST['content']);
        
     }
     elseif($_GET['action'] == 'post') {

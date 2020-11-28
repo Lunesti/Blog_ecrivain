@@ -7,7 +7,7 @@
     <link href="public/css/style.css" rel="stylesheet" /> 
     <link rel="stylesheet" href= "Public/css/admin.css">   
     <link rel="stylesheet" href="Public/css/responsive.css">
-    <script src="https://cdn.tiny.cloud/1/cmdzeda6yrj1wga8di8rs07wq89ifems1i96r1egmjefib9u/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!--<script src="https://cdn.tiny.cloud/1/cmdzeda6yrj1wga8di8rs07wq89ifems1i96r1egmjefib9u/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
             selector: 'textarea',
@@ -17,7 +17,7 @@
             tinycomments_mode: 'embedded',
             tinycomments_author: 'Author name',
         });
-    </script>
+    </script>-->
 </head>
 
 <body>

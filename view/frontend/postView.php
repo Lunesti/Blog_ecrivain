@@ -9,7 +9,8 @@
           
                 <p class="return_post"><a href="index.php">&#x2190; Retour à la liste des billets</a></p>
                 <br>
-                    <p class="title"><?= htmlspecialchars_decode($post->title) ?><span>le <?= $post->creation_date_fr ?></span></p>
+               
+                    <p class="title"><?= htmlspecialchars_decode($post->title)?><span> le <?= $post->creation_date_fr ?></span></p>
                     <p class="element"><span><?= nl2br(htmlspecialchars_decode($post->content)) ?></span></p>
 
                     <?php //Si l'utilisateur est un admin, on accèdes aux paramètres admin
@@ -47,7 +48,7 @@
                     ?>  
                     <?php foreach($comment as $data) :  ?>
 
-                    <p><strong> <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="comment_date">le  <?= $data->comment_date_fr ?></span></p>
+                    <p><strong> <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="comment_date">le  <?= $data->comment_date_fr?></span></p>
                     <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a class="comment" href="index.php?action=report&amp;id=<?= $post->id ?>"> Signaler</a></p>
                     <br>
                     <?php

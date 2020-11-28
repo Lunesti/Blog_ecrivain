@@ -10,7 +10,7 @@ class Post {
  
 
     //GETTERS
-    public function getId($id) {
+    public function getId() {
         return $this->_id;
     }
 

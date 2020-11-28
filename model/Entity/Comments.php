@@ -24,15 +24,15 @@ class Comments {
     }
 
     public function getAuthor() {
-      return $this->author;
+      return $this->_author;
     }
 
      public function getComments() {
-        return $comments->_comment;
+        return $this->_comments;
     }
 
-    public function getDate() {
-        return $date->comment_date;
+    public function getCommentDate() {
+        return $this->_comment_date;
     }
 
     //SETTERS
@@ -41,7 +41,7 @@ class Comments {
     }
 
     public function setComment($comment) {
-        $this->_comment = $cmment;
+        $this->_comments = $comment;
     }
 
 

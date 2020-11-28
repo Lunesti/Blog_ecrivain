@@ -32,8 +32,8 @@ class CommentManager {
     public function postComment($comment){
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $comments = $db->prepare('INSERT INTO comment(post_id, author, comment, comment_date) VALUES(:postId, :author, :comment, NOW())');
-        $comments->execute(array( 
+        $req = $db->prepare('INSERT INTO comment(post_id, author, comment, comment_date) VALUES(:postId, :author, :comment, NOW())');
+        $comments = $req->execute(array( 
             "postId"=> $_GET['id'],
             "author"=> $_SESSION['username'],
             "comment"=> $_POST['comment']

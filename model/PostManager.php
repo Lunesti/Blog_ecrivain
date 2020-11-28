@@ -7,11 +7,14 @@ class PostManager {
 
     //Afficher les posts
     public function getPosts() {
-
+        /*Connexion à la base*/
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC') 
-        or die(print_r($db->errorInfo()));
+        /*..*/
+
+        /*Requête préparée*/
+        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date_fr DESC');
+        /*On définit le mode de récupération de la requête*/
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         $posts = $req->fetchAll();
         //var_dump($posts);
@@ -24,24 +27,24 @@ class PostManager {
         $db = $connexion->dbConnect();
         $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($id));
-        $post = $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
+        $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         //var_dump($post);
         $post = $req->fetch();
-        //var_dump($post);
+       
         return $post;
      
     }
 
     //Ajouter un nouvel article
     public function addPost($newPost) {
+        
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $post = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES(:title, :content,  NOW())');
+        $post = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES( :title, :content, NOW())');
         $post->execute(array(
-            "title"=>$_POST['title'],
-            "content"=>$_POST['content']
+            "title" => $newPost->getTitle(),
+            "content" => $newPost->getContent()
         ));
-        var_dump($post);
         return $post;
     }
 
@@ -51,9 +54,10 @@ class PostManager {
         $db = $connexion->dbConnect();
         $update = $db->prepare('UPDATE posts SET title = :title, content = :content');
         $update->execute(array(
-            "title"=>$_POST['title'],
-            "content"=>$_POST['content'],
+            "title"=> $post->getTitle(),
+            "content"=> $post->getContent()
         ));
+        var_dump($update);
         return $update;
     }
 
@@ -62,8 +66,7 @@ class PostManager {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
         $delete = $db->prepare('DELETE FROM posts WHERE id = :id');
-        $delete->execute(array(
-            ":id"=>$_GET['id']));
+        $delete->execute(array("id" => $id));
         return $delete;
     }
 }
