@@ -46,11 +46,11 @@ class Users {
     
 /*EMAIL*/
     public function getEmail() {
-        return $Email->Email;
+        return $email->email;
     }
 
-    public function setEmail($Email) {
-        $this->Email = $Email;
+    public function setEmail($email) {
+        $this->email = $email;
     }
 
     /*INSCRIPTION_DATE*/

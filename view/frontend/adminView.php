@@ -1,31 +1,19 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Design blog</title>
-    <link rel="stylesheet" href= "Public/css/connexionView.css">   
-    <link rel="stylesheet" href="Public/css/responsive.css">
-</head>
-
-<body>
-<?php include('header.php');?>        
+<?php ob_start(); ?>
+<?php include('header.php');?>   
 
         <div class="bloc-page">
-            <section class="inscription">
+            <section class="connexion">
                 <form action="index.php?action=connected" method="post">
-                <p>Connexion à votre espace</p>
+                <p class="connexion_title">Espace administrateur</p>
                 <p><img src="public/img/user.png" alt="user"></p>
                     <p>                  
-                        <label for="username"> <input type="text" name="username" placeholder="Username"></label>
-                        <label for="userpass"> <input type="text" name="userpass"  placeholder="Password"></label>
-                        <input type="submit" id="submit" name="submit" value="Connexion">
+                        <label for="username"> <input type="text" name="username" placeholder="Username"></label><br>
+                        <label for="userpass"> <input type="text" name="userpass"  placeholder="Password"></label><br>
+                        <input type="submit" id="submit" name="submit" value="Connexion"><br>
                     </p>
                 </form>
             </section>
             <footer></footer>
         </div>
-            
-</body>
-
-</html>
+        <?php $content = ob_get_clean(); ?>
+<?php include('html.php'); ?>   

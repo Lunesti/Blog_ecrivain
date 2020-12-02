@@ -8,64 +8,162 @@
     * {
         font-family: sans-serif;
     }
+    
+    p,
+    li {
+        font-size: 1.2em;
+        color: #333;
+    }
     /*Couleurs  des fonts*/
     
-    li a {
+    li a,
+    header p {
         text-decoration: none;
-        color: #FFF;
+        color: white;
     }
     
-    a {
+    header p {
+        text-decoration: underline;
+    }
+    
+    .content a {
         color: purple;
         text-decoration: none;
     }
     
-    header p,
     ul li {
         color: #FFF;
     }
     
     .content p {
-        color: #000;
+        color: #333;
     }
     /*Tailles*/
     
-    p {
-        font-size: 1.2em;
+    nav,
+    .bloc-page {
+        width: 1200px;
     }
     
     .bloc-page {
-        width: 1200px;
-        margin: auto;
+        margin: 100px auto;
         background: #FFF;
     }
+    /*Paramétrage du menu fixe*/
     
-    header {
-        background: #222222;
-        height: 70px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+    header p,
+    nav {
+        position: fixed;
+        top: 0;
+        height: 100px;
+        z-index: 3;
+    }
+    /*Alignement au centre des éléments du menu*/
+    
+    nav li {
+        line-height: 100px;
+    }
+    /*Décalage depuis la gauche*/
+    
+    header p {
+        margin: 0 0 0 5%;
     }
     
     nav {
-        margin-right: 5%;
+        top: 0;
+        left: 50%;
+        /* à 50%/50% du parent référent */
+        transform: translate(-50%, 0);
+        /* décalage de 50% de sa propre taille */
+        /*top: 0;*/
+        /*line-height: 2.5vw;*/
+        margin: auto;
+        line-height: 100px;
+        background: #333;
     }
+    /*Liens de navigation*/
     
-    ul {
-        display: flex;
-    }
-    
-    ul li {
+    nav .navigation {
+        margin: 0 5% 0 0;
+        padding: 0;
         list-style: none;
-        padding-left: 20px;
-        display: flex;
-        align-items: center;
+        overflow: hidden;
+        clear: both;
+        max-height: 0;
+        transition: max-height .2s ease-out;
     }
     
-    li img {
-        max-width: 20%;
-        margin-right: 5px;
+    .navigation li a {
+        display: block;
+        padding-left: 44px;
+        /*padding: 0.8vw 0.8vw;*/
+        text-decoration: none;
+    }
+    /*Paramétrage du bouton du menu burger*/
+    
+    nav .menu-icon {
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        padding: 50px 19px;
+        position: relative;
+        user-select: none;
+    }
+    
+    .menu-icon .navicon {
+        background: #333;
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background .2s ease-out;
+        width: 18px;
+    }
+    
+    .menu-icon .navicon:before,
+    .menu-icon .navicon:after {
+        background: #333;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease-out;
+        width: 100%;
+    }
+    
+    .menu-icon .navicon:before {
+        top: 5px;
+    }
+    
+    .menu-icon .navicon:after {
+        top: -5px;
+    }
+    /* menu btn */
+    
+    nav .menu-btn {
+        display: none;
+    }
+    
+    nav .menu-btn:checked~.navigation {
+        transition: all .5s ease;
+        background: #fff;
+        max-height: 629px;
+    }
+    
+    nav .menu-btn:checked~.menu-icon .navicon {
+        background: transparent;
+    }
+    
+    nav .menu-btn:checked~.menu-icon .navicon:before {
+        transform: rotate(-45deg);
+    }
+    
+    nav .menu-btn:checked~.menu-icon .navicon:after {
+        transform: rotate(45deg);
+    }
+    
+    nav .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+    nav .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+        top: 0;
     }
     /*Banniere*/
     
@@ -74,11 +172,12 @@
     }
     
     .banniere img {
-        width: 70%;
+        width: 90%;
         padding-bottom: 50px;
     }
     
     h1 {
+        color: #333;
         font-size: 2.5em;
         text-decoration: underline;
         text-align: center;
@@ -96,7 +195,7 @@
     /* liens vers tout les posts*/
     
     .return_post a {
-        color: #000;
+        color: #333;
         font-style: italic;
         font-size: 0.8em;
     }
@@ -115,17 +214,17 @@
     .title {
         height: 30px;
         font-weight: bold;
-        border-bottom: 2px solid #000;
+        border-bottom: 2px solid #333;
     }
     
     .date {
-        font-size: 0.8em;
+        font-size: 0.9em;
         font-style: italic;
     }
     
     .description {
         text-align: center;
-        width: 70%;
+        width: 90%;
     }
     
     .content :nth-child(2) {
@@ -145,6 +244,7 @@
         font-weight: bold;
         text-align: center;
         margin-bottom: 50px;
+        color: #333;
     }
     /*PAGE POSTVIEW*/
     /*Pseudo de l'user*/
@@ -162,4 +262,28 @@
         /*color: #000;*/
         font-style: italic;
         font-size: 0.8em;
+    }
+    /*Page connexion*/
+    
+    section .connexion,
+    section .inscription {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .connexion_title {
+        font-size: 1.5em;
+    }
+    
+    .connexion p,
+    .inscription p {
+        text-align: center;
+    }
+    
+    .connexion input,
+    .inscription input {
+        margin-bottom: 10px;
     }

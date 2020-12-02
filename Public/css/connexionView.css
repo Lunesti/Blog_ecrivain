@@ -45,34 +45,6 @@ p {
     background: #FFF;
 }
 
-header {
-    background: #222222;
-    height: 70px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-nav {
-    margin-right: 5%;
-}
-
-ul {
-    display: flex;
-}
-
-ul li {
-    list-style: none;
-    padding-left: 20px;
-    display: flex;
-    align-items: center;
-}
-
-li img {
-    max-width: 20%;
-    margin-right: 5px;
-}
-
 .inscription {
     width: 30%;
     height: 300px;

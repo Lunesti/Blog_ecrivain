@@ -30,7 +30,6 @@ class PostManager {
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         //var_dump($post);
         $post = $req->fetch();
-       
         return $post;
      
     }
@@ -57,7 +56,7 @@ class PostManager {
             "title"=> $post->getTitle(),
             "content"=> $post->getContent()
         ));
-        var_dump($update);
+        //var_dump($update);
         return $update;
     }
 
@@ -65,8 +64,11 @@ class PostManager {
     public function getDelete($id) {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $delete = $db->prepare('DELETE FROM posts WHERE id = :id');
-        $delete->execute(array("id" => $id));
+        $req = $db->prepare('DELETE FROM posts WHERE id = :id');
+        $delete = $req->execute(array(
+            "id" => $id
+        ));
+        //var_dump($delete);
         return $delete;
     }
 }

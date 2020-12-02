@@ -9,7 +9,7 @@ require('controller/Controller_report.php');
 //Afficher les posts
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
-        readAll($_POST['title'], $_POST['content']);
+        readAll();
        
     }
     elseif($_GET['action'] == 'post') {
@@ -59,6 +59,7 @@ if (isset($_GET['action'])) {
         }
     //Supprimer un post    
     } elseif ($_GET['action'] == 'delete') {
+        //var_dump($_GET['id']);
         deletePost($_GET['id']);
     }
 
@@ -92,7 +93,6 @@ if (isset($_GET['action'])) {
 
     //Afficher la page Admin
     elseif($_GET['action'] == 'admin') {
-        connect($_SESSION['username']);
         adminPage();
     }
 

@@ -3,12 +3,20 @@ require_once('Model/userManager.php');
 require_once('Model/PostManager.php');
 
 function subscribe($pseudo, $pass, $email) {  //Inscription
-    $subscribe = new Members($pseudo, $pass, $email);
+    var_dump($pseudo, $pass, $email);
+
+    $subscribe = new Users($pseudo, $pass, $email);
+    $subscribe->setPseudo($pseudo);
+    $subscribe->setPass($pass);
+    $subscribe->setEmail($email);
+    var_dump($subscribe);
+
     $postManager = new PostManager();
     $posts = $postManager->getPosts();
+
     $membersManager = new Members();
-    $subscribe = $membersManager->newUser($subscribe);
-    var_dump($subscribe);
+    $membersManager->newUser($subscribe);
+    
     header('Location: index.php?action=listPosts');
 }
 

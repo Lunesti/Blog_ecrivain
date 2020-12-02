@@ -3,11 +3,17 @@ require_once('Model/userManager.php');
 require_once('Model/PostManager.php');
 require_once('Model/CommentManager.php');
 
-function connect($username) {  //Connexion
+function connect($pseudo) {  //Connexion
+    //var_dump($pseudo);
+    $connexion = new Users();
+    $connexion->setPseudo($pseudo);
+    //var_dump($connexion);
     $postManager = new PostManager();
-    $posts =  $postManager->getPosts(); //Cette ligne sert à récupérer les données de posts
-    $membersManager = new Members();
-    $login = $membersManager->getConnexion($username);
+    $listposts =  $postManager->getPosts(); //Cette ligne sert à récupérer les données de posts
+    $connect = new Members();
+    $login = $connect->getConnexion($connexion);
+
+    
     $isPasswordCorrect = password_verify($_POST['userpass'], $login['pass']);  
     if (!$login) {
         print 'Mauvais identifiant ou mot de passe !';

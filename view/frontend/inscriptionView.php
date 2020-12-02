@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Design blog</title>
-    <link rel="stylesheet" href= "Public/css/style.css">
-    <link rel="stylesheet" href="Public/css/responsive.css">
-</head>
-
-<body>
+<?php ob_start(); ?>
 <?php include('header.php');?>        
-
-
     <div class="bloc-page">
-        <h1>Billet simple pour l'Alaska</h1>
-        <section class="billets">
+        <section class="inscription">
+            <p class="connexion_title">Inscription</p>
             <form action="index.php?action=subscribed" method="post">
-                 <label for="pseudo">Entrer un pseudo : <input type="text" name="pseudo"></label><br>
-                <label for="pass">Entrer un password : <input type="text" name="pass"></label><br>
-                <label for="pass">Retapez votre password : <input type="text" name="pass"></label><br>
-                <label for="email">Entrer un email : <input type="text" name="email"></label><br>
-                <input type="submit" name="submit">
+                <p>
+                    <label for="pseudo">Entrer un pseudo : <input type="text" name="pseudo"></label><br>
+                    <label for="pass">Entrer un password : <input type="text" name="pass"></label><br>
+                    <label for="pass">Retapez votre password : <input type="text" name="pass"></label><br>
+                    <label for="email">Entrer un email : <input type="text" name="email"></label><br>
+                    <input type="submit" name="submit">
+                </p>
+                
             </form>
         </section>
     </div>
-</body>
-
-</htmlP
+    <?php $content = ob_get_clean(); ?>
+<?php include('html.php'); ?>   

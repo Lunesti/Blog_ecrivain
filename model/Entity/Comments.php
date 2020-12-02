@@ -49,7 +49,5 @@ class Comments {
         $this->_comment_date = $date;
     }
 
-    public function setReport($report) {
-        $this->_report = $report;
-    }
+
 }

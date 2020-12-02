@@ -35,14 +35,15 @@ class CommentManager {
         $req = $db->prepare('INSERT INTO comment(post_id, author, comment, comment_date) VALUES(:postId, :author, :comment, NOW())');
         $comments = $req->execute(array( 
             "postId"=> $_GET['id'],
-            "author"=> $_SESSION['username'],
-            "comment"=> $_POST['comment']
+            "author"=> $comment->getAuthor(),
+            "comment"=> $comment->getComments()
         ));
+        var_dump($comments);
         return $comments;
     }
 
     //récupérer l'id user et l'id comment pour un signalement
-    public function reportComment($report) {
+   /* public function reportComment($report) {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
         $req = $db->query("SELECT members.pseudo, comment.comment FROM members INNER JOIN comment ON members.id = comment.id ");
@@ -50,5 +51,5 @@ class CommentManager {
         $report = $req->fetch();
         var_dump($report);
         return $report;     
-    }
+    }*/
 }

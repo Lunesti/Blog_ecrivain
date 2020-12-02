@@ -7,12 +7,22 @@
      <section class="posts">
         <div class="chapters">
             <div class="content">
+
+           <?php if(isset($_SESSION['username'])) {
+                        if ($_SESSION['user_role'] == 'admin') {
+                            ?>
+                         <p><a href="index.php?action=admin">Page d'administration</a></p>
+                        <?php
+                            }
+                        }
+                        ?>
+                        <br><br>
             <?php foreach
                 ($listposts as $data) :  //var_dump($data);
              ?>
                 <p class="title"><?= htmlspecialchars_decode($data->title); ?>  <span class="date"> le <?= $data->creation_date_fr; ?> </span></p>
-               <?= htmlspecialchars_decode($data->content); ?>
-                <p><a class="comment" href="index.php?action=post&amp;id=<?= $data->id ?>">Acceder aux commentaires</a></p> 
+               <?= htmlspecialchars_decode(substr($data->content,0,500)) .'...'; ?>
+                <p><a class="comment" href="index.php?action=post&amp;id=<?= $data->id ?>">Lire la suite</a></p> 
                 <br />
                 <?php
                 endforeach

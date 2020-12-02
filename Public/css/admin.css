@@ -19,14 +19,6 @@ li a {
     color: #000;
 }
 
-
-/*Couleurs  des fonts*/
-
-a {
-    color: purple;
-    text-decoration: none;
-}
-
 header p,
 ul li {
     color: #FFF;
@@ -41,8 +33,7 @@ p {
 
 .bloc-page {
     width: 1200px;
-    height: 1800px;
-    margin: auto;
+    margin: 100px auto;
     background: #FFF;
 }
 
@@ -56,7 +47,6 @@ p {
 }
 
 .admin {
-    text-transform: uppercase;
     text-align: center;
     font-size: 2em;
     font-weight: bold;
@@ -70,14 +60,12 @@ p {
 }
 
 p.title {
-    text-transform: uppercase;
     font-weight: bold;
     color: #3A6476;
     border-bottom: 0;
 }
 
 p.titleChapters {
-    text-transform: uppercase;
     font-weight: bold;
     color: #3A6476;
     border-bottom: 2px solid #000;

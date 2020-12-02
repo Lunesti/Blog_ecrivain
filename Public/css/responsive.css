@@ -1,7 +1,38 @@
+/*Pour un minimum de 869px*/
+
+@media all and (min-width: 869px) {
+    .navigation li {
+        float: left;
+    }
+    nav .navigation {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+    nav .menu-icon {
+        display: none;
+    }
+}
+
 @media all and (max-width: 1440px) {
+    p,
+    li,
+    a {
+        font-size: 1vw;
+    }
+    .date {
+        font-size: 0.9vw;
+    }
+    nav,
     .bloc-page {
-        width: 900px;
-        margin: auto;
+        width: 80%;
+    }
+    nav {
+        right: 10%;
+        left: 10%;
+    }
+    h1 {
+        font-size: 2.5vw;
     }
 }
 
@@ -14,5 +45,26 @@
         width: 90%;
         text-align: center;
         margin: 20px auto auto auto;
+    }
+}
+
+@media all and (max-device-width: 900px) {
+    p {
+        font-size: 1.5em;
+    }
+    .bloc-page {
+        width: 700px;
+        margin: auto;
+    }
+    h1 {
+        width: 90%;
+        text-align: center;
+        margin: 20px auto auto auto;
+    }
+}
+
+@media all and (max-device-width:700px) {
+    p {
+        font-size: 1.8em;
     }
 }

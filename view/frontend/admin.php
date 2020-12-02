@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Design blog</title>
-    <link href="public/css/style.css" rel="stylesheet" /> 
-    <link rel="stylesheet" href= "Public/css/admin.css">   
-    <link rel="stylesheet" href="Public/css/responsive.css">
-    <!--<script src="https://cdn.tiny.cloud/1/cmdzeda6yrj1wga8di8rs07wq89ifems1i96r1egmjefib9u/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-            toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-            toolbar_mode: 'floating',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-        });
-    </script>-->
-</head>
-
-<body>
-<?php include('header.php');?>  
-
+<?php ob_start(); ?>
+<?php include('header.php');?>    
+        
 <div class='bloc-page'>
     <section class="create">
         <p class="admin">Page d'administration</p>
@@ -63,7 +41,7 @@
         </div>         
     </section> 
 </div> 
-</body>
 
-</html>
+<?php $content = ob_get_clean(); ?>
+<?php include('html.php'); ?>   
 

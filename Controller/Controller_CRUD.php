@@ -4,10 +4,8 @@ require_once('Model/CommentManager.php');
 //CREATE / READ / UPDATED / DELETE
 
 function readAll() {  //Afficher les posts
-
     $postManager = new PostManager();
-    $listposts = $postManager->getPosts();    
-    //var_dump($listposts);
+    $listposts = $postManager->getPosts();
     require('view/frontend/listPostsView.php');
 }
 
@@ -19,45 +17,55 @@ function read($id) { //Afficher le post et ses commentaires
     require('view/frontend/postView.php');
 }
 
-function create($title, $content) { //Ajouter un post 
-    
+function create($title, $content) {
+    /*Création d'un nouvel objet Post*/
     $post = new Post();
+    /*Récupération des setters en passant en paramètre les variables qu'on souhaite récupérer*/
     $post->setTitle($title);
     $post->setContent($content);
-    //var_dump($title, $content);
+
     $postManager = new PostManager();
     $postManager->addPost($post);
-    var_dump($post);
+    /*On récupère la méthode getPosts pour afficher la liste des posts*/
     $posts = $postManager->getPosts();    
-    //var_dump($posts) ;
     header('Location: index.php?action=listPosts');
 }
 
-function update($title, $content) { //Modifier un post
-    var_dump($title, $content);
+function update($title, $content) {
+
+    /*Création d'un nouvel objet Post*/
     $update = new Post();
+    /*Récupération des setters en passant en paramètre les variables qu'on souhaite récupérer*/
     $update->setTitle($title);
     $update->setContent($content);
-    var_dump($update);
-    $edit = new PostManager();
-    var_dump($edit);
-    $postEdit = $edit->getUpdate($update);
-    var_dump($postEdit);
+
+    
+    $postManager = new PostManager();
+    $postEdit = $postManager->getUpdate($update);
+    /*On récupère la méthode getPosts pour afficher la liste des posts*/
+    $posts = $postManager->getPosts();
+
+    /*On récupère la méthode getComments pour afficher les commentaires*/
+    $commentManager = new CommentManager();
+    $comments = $commentManager->getComments();
+    
+    //var_dump($postEdit);
     require("View/frontend/admin.php"); //Page d'administration du site
 }
 
-function deletePost($id) { //Supprimer un post
-    $delete = new Post($id);
+function deletePost($id) {
     $postManager = new PostManager();
-    $posts = $postManager->getPosts();
-    $postManager->getDelete($delete);
+    $posts = $postManager->getPosts();  
+    $postManager->getDelete($id);
     $commentManager = new CommentManager();
     $comments = $commentManager->getComments();
     require("View/frontend/admin.php"); //Page d'administration du site
 }
 
 
-//Rediriger vers la page de modification de post
 function updatePage(){
+    /*Je récupère la méthode getPost avec l'id du post pour récupérer le post à modifier et j'appel la vue Update*/
+    $postManager = new PostManager(); 
+    $post = $postManager->getPost($_GET['id']);
     require("View/frontend/updateView.php");
 }

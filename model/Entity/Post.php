@@ -9,8 +9,9 @@ class Post {
     private $_creation_date;
  
 
+
     //GETTERS
-    public function getId() {
+    public function getId($id) {
         return $this->_id;
     }
 
@@ -27,6 +28,7 @@ class Post {
     }
 
     //SETTERS
+
     public function setTitle($title) {
         if(is_string($title)) {
             $this->_title = $title;
