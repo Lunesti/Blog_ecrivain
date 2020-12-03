@@ -51,10 +51,11 @@ class PostManager {
     public function getUpdate($post) {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $update = $db->prepare('UPDATE posts SET title = :title, content = :content');
+        $update = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
         $update->execute(array(
             "title"=> $post->getTitle(),
-            "content"=> $post->getContent()
+            "content"=> $post->getContent(),
+            "id"=> $post->getId()
         ));
         //var_dump($update);
         return $update;
@@ -71,4 +72,11 @@ class PostManager {
         //var_dump($delete);
         return $delete;
     }
-}
+
+ public function reportComment($report) {
+        $connexion = new Manager();	        
+        $db = $connexion->dbConnect();	       
+        $req = $db->query("SELECT* FROM members INNER JOIN comment ON members.id = comment.id ");	     
+        $report = $req->fetch();	       
+        var_dump($report);	        
+        return $report;     	     

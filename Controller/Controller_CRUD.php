@@ -31,14 +31,14 @@ function create($title, $content) {
     header('Location: index.php?action=listPosts');
 }
 
-function update($title, $content) {
+function update($id, $title, $content) {
 
     /*Création d'un nouvel objet Post*/
     $update = new Post();
     /*Récupération des setters en passant en paramètre les variables qu'on souhaite récupérer*/
     $update->setTitle($title);
     $update->setContent($content);
-
+    $update->setId($id);
     
     $postManager = new PostManager();
     $postEdit = $postManager->getUpdate($update);

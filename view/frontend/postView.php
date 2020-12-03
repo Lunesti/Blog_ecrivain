@@ -57,7 +57,7 @@
                     
                 </div>
             </div>
-        </section>       
+    </section>       
 </div>   
 <?php $content = ob_get_clean(); ?>
  <?php require('html.php'); ?>     

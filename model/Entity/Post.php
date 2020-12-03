@@ -11,7 +11,7 @@ class Post {
 
 
     //GETTERS
-    public function getId($id) {
+    public function getId() {
         return $this->_id;
     }
 
@@ -28,6 +28,11 @@ class Post {
     }
 
     //SETTERS
+
+
+    public function setId($id) {
+        $this->_id = $id;
+    }
 
     public function setTitle($title) {
         if(is_string($title)) {

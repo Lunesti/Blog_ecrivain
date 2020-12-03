@@ -43,13 +43,18 @@ class CommentManager {
     }
 
     //récupérer l'id user et l'id comment pour un signalement
-   /* public function reportComment($report) {
+   public function reportComment($report) {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $req = $db->query("SELECT members.pseudo, comment.comment FROM members INNER JOIN comment ON members.id = comment.id ");
+        $req = $db->query("UPDATE * FROM comment ");
         $req->setFetchMode(\PDO::FETCH_CLASS, Comments::class);
         $report = $req->fetch();
         var_dump($report);
         return $report;     
-    }*/
+    }
+
+    /*Lister les commentires signaler 
+    query SELECT * FROM comment WHERE report = true
+    
+    */
 }

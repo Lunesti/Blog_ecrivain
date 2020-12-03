@@ -13,7 +13,7 @@ function connect($pseudo) {  //Connexion
     $connect = new Members();
     $login = $connect->getConnexion($connexion);
 
-    
+
     $isPasswordCorrect = password_verify($_POST['userpass'], $login['pass']);  
     if (!$login) {
         print 'Mauvais identifiant ou mot de passe !';

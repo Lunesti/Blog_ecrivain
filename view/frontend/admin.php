@@ -34,6 +34,8 @@
                  ($comments as $data) :
                  ?>
                 <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?></p>
+                <?php 
+                ?>
                 <?php
                     endforeach;
                 ?> 

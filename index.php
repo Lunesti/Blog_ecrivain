@@ -50,9 +50,9 @@ if (isset($_GET['action'])) {
     }
     //Modifier un post
     elseif ($_GET['action'] == 'postUpdated') {
-        if (isset($_POST['title']) && isset($_POST['content'])) {
-            if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                update($_POST['title'], $_POST['content']);
+        if (isset($_POST['id']) && isset($_POST['title']) && isset($_POST['content'])) {
+            if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['id'])) {
+                update($_POST['id'], $_POST['title'], $_POST['content']);
             } else {
                 print "Les champs sont pas remplis !";
             }
