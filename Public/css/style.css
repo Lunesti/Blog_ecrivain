@@ -16,9 +16,11 @@ h1 {
     font-size: 2.5em;
 }
 
-p,
+a.comment,
 li,
 header p,
+p.title,
+p.description,
 p.content,
 .date {
     font-size: 1.2em;
@@ -97,13 +99,12 @@ ul li {
 /*Paramétrage des blocs*/
 
 nav,
-.bloc-page,
-footer {
+.bloc-page {
     width: 1200px;
 }
 
 .bloc-page {
-    margin: 100px auto;
+    margin: 100px auto 50px auto;
     height: auto;
     background: #FFF;
 }
@@ -150,9 +151,6 @@ nav .menu-icon {
 }
 
 
-/*Paramétrage du bouton du menu burger*/
-
-
 /*Banniere*/
 
 .banniere {
@@ -182,12 +180,6 @@ section.intro {
 
 
 /*Les billets*/
-
-
-/* liens vers tout les posts*/
-
-
-/**/
 
 .chapters {
     margin-top: 20px;
@@ -225,10 +217,11 @@ section.intro {
 }
 
 
-/*PAGE POSTVIEW*/
+/*page postview*/
 
-
-/*Pseudo de l'user*/
+#comment {
+    width: 100%;
+}
 
 
 /*Page connexion*/
@@ -254,4 +247,34 @@ section .inscription {
 .connexion input,
 .inscription input {
     margin-bottom: 10px;
+}
+
+
+/*Page admin */
+
+.admin {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.create {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin: 0 5% 0 5%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer p {
+    color: rgb(212, 212, 212);
+}
+
+.report {
+    color: red;
+    font-weight: bold;
 }

@@ -3,13 +3,19 @@ require_once('Model/PostManager.php');
 require_once('Model/CommentManager.php');
 //CREATE / READ / UPDATED / DELETE
 
-function readAll() {  //Afficher les posts
+function readAll() 
+{  
+    //Afficher les posts
     $postManager = new PostManager();
     $listposts = $postManager->getPosts();
     require('view/frontend/listPostsView.php');
 }
 
-function read($id) { //Afficher le post et ses commentaires
+
+
+function read($id) 
+{   
+    //On crée une nouvelle instance de PostManager et on appel les méthodes getPost et getComment en leur passant à chacun l'id post 
     $postManager = new PostManager(); 
     $post = $postManager->getPost($_GET['id']);
     $commentManager = new CommentManager();
@@ -17,55 +23,47 @@ function read($id) { //Afficher le post et ses commentaires
     require('view/frontend/postView.php');
 }
 
-function create($title, $content) {
+function create($title, $content) 
+{
     /*Création d'un nouvel objet Post*/
     $post = new Post();
-    /*Récupération des setters en passant en paramètre les variables qu'on souhaite récupérer*/
+    /*On crée une nouvelle instance de Post, et on appel les setters en leur passant les variables titre et contenu*/
     $post->setTitle($title);
     $post->setContent($content);
-
     $postManager = new PostManager();
-    $postManager->addPost($post);
-    /*On récupère la méthode getPosts pour afficher la liste des posts*/
-    $posts = $postManager->getPosts();    
+    /*On crée une nouvelle instance de postManager et on passe en paramètre l'objet $post dans la méthode addPost*/ 
+    $postManager->addPost($post);  
     header('Location: index.php?action=listPosts');
 }
 
-function update($id, $title, $content) {
-
+function update($id, $title, $content)
+{
     /*Création d'un nouvel objet Post*/
     $update = new Post();
-    /*Récupération des setters en passant en paramètre les variables qu'on souhaite récupérer*/
+    /*On crée une nouvelle instance de Post, et on appel les setters en leur passant les variables titre, contenu et id*/
     $update->setTitle($title);
     $update->setContent($content);
     $update->setId($id);
-    
+    /*On crée une nouvelle instance de postManager et on passe en paramètre l'objet $update dans la méthode getUpdate*/
     $postManager = new PostManager();
     $postEdit = $postManager->getUpdate($update);
-    /*On récupère la méthode getPosts pour afficher la liste des posts*/
-    $posts = $postManager->getPosts();
-
-    /*On récupère la méthode getComments pour afficher les commentaires*/
-    $commentManager = new CommentManager();
-    $comments = $commentManager->getComments();
-    
-    //var_dump($postEdit);
-    require("View/frontend/admin.php"); //Page d'administration du site
+    header('Location: index.php?action=listPosts');
 }
 
-function deletePost($id) {
-    $postManager = new PostManager();
-    $posts = $postManager->getPosts();  
-    $postManager->getDelete($id);
-    $commentManager = new CommentManager();
-    $comments = $commentManager->getComments();
-    require("View/frontend/admin.php"); //Page d'administration du site
-}
-
-
-function updatePage(){
+function updatePage()
+{
     /*Je récupère la méthode getPost avec l'id du post pour récupérer le post à modifier et j'appel la vue Update*/
     $postManager = new PostManager(); 
     $post = $postManager->getPost($_GET['id']);
     require("View/frontend/updateView.php");
 }
+
+function deletePost($id) /*On récupère le post à supprimer*/
+ {
+    $postManager = new PostManager();  
+    /*On appel la méthode getDelete en lui passant l'id du post à supprimer*/
+    $postManager->getDelete($id);
+    header('Location: index.php?action=listPosts');
+}
+
+

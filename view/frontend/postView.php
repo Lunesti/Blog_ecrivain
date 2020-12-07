@@ -43,13 +43,15 @@
                     </form>
                     <br>
                    
-                    <?php
-                        //endforeach;
-                    ?>  
+                 
                     <?php foreach($comment as $data) :  ?>
 
-                    <p><strong> <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="comment_date">le  <?= $data->comment_date_fr?></span></p>
-                    <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a class="comment" href="index.php?action=report&amp;id=<?= $post->id ?>"> Signaler</a></p>
+                    <p><strong>    <?php
+                        var_dump($data->id);
+                    ?>  <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="comment_date">le  <?= $data->comment_date_fr?></span></p>
+        
+                    <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a class="comment" href="index.php?action=report&amp;id=<?= $data->id ?>"> Signaler</a></p>
+
                     <br>
                     <?php
                         endforeach;
@@ -61,4 +63,4 @@
 </div>   
 <?php $content = ob_get_clean(); ?>
  <?php require('html.php'); ?>     
-
+ <?php include('footer.php'); ?>   

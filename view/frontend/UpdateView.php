@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="utf8" />
-            <link rel="stylesheet" href="style.css">
-            <title>Modifier un billet</title>
-            <link rel="stylesheet" href= "../../Public/css/connexionView.css">   
-            <link rel="stylesheet" href="../../Public/css/responsive.css">
-           
-        </head>
- 
-        <body>
- 
+<?php ob_start(); ?>
+<?php include('header.php');?>        
+<div class='bloc-page'>
+
             <h3>Modifiez un billet existant à l'aide des champs ci-dessous :</h3>
             
             <form action="index.php?action=postUpdated" method="POST">
@@ -19,5 +10,6 @@
                 <p><label for="content">Saisissez l'article modifié :</label><textarea name="content"><?= $post->content; ?></textarea></p>
                 <p><input type="submit"></p>
             </form>
-        </body>
-    </html>
+<?php $content = ob_get_clean(); ?>
+<?php include('html.php'); ?>   
+<?php include('footer.php'); ?>   

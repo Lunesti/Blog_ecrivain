@@ -9,8 +9,8 @@ class Members {
     public function newUser($user) {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $pass_hache = password_hash($user->getPass(), PASSWORD_DEFAULT);
         $req = $db->prepare('INSERT INTO members(pseudo, pass, email, inscription_date) VALUES(:pseudo, :pass, :email, CURDATE())');
+        $pass_hache = password_hash($user->getPass(), PASSWORD_DEFAULT);
         $subscribe = $req->execute(array(
             "pseudo"=> $user->getPseudo(),
             "pass"=> $pass_hache,

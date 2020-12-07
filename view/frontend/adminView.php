@@ -17,3 +17,4 @@
         </div>
         <?php $content = ob_get_clean(); ?>
 <?php include('html.php'); ?>   
+<?php include('footer.php'); ?>   

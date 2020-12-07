@@ -15,8 +15,8 @@ function subscribe($pseudo, $pass, $email) {  //Inscription
     $posts = $postManager->getPosts();
 
     $membersManager = new Members();
-    $membersManager->newUser($subscribe);
-    
+    $newUser = $membersManager->newUser($subscribe);
+    var_dump($newUser);
     header('Location: index.php?action=listPosts');
 }
 

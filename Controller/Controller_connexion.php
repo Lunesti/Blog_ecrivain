@@ -57,5 +57,6 @@ function adminPage() {
     $posts = $postManager->getPosts();
     $commentManager = new CommentManager();
     $comments = $commentManager->getComments();
+    $listReports = $commentManager->getReports();
     require('View/frontend/admin.php');
 }

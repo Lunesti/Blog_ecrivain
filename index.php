@@ -4,22 +4,16 @@ require('controller/Controller_CRUD.php');
 require('controller/Controller_subscribe.php');
 require('controller/Controller_connexion.php');
 require('controller/Controller_comment.php');
-require('controller/Controller_report.php');
 
 //Afficher les posts
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
         readAll();
-       
-    }
-    elseif($_GET['action'] == 'post') {
-        
+    } elseif ($_GET['action'] == 'post') {
         read($_GET['id']);
-    }
-    elseif($_GET['action'] == 'report') {
-        report();
-        //var_dump(report($_POST['pseudo'], $_POST['comment']));
-    }
+    } elseif ($_GET['action'] == 'report') {
+        listReports($_GET['id']);
+    } 
 
     //Ajouter un commentaire
     elseif ($_GET['action'] == 'addComment') {
@@ -59,8 +53,10 @@ if (isset($_GET['action'])) {
         }
     //Supprimer un post    
     } elseif ($_GET['action'] == 'delete') {
-        //var_dump($_GET['id']);
         deletePost($_GET['id']);
+    }
+    elseif ($_GET['action'] == 'deleteComment') {
+        deleteComment($_GET['id']);
     }
 
     //Afficher la page d'inscription 
@@ -126,5 +122,4 @@ if (isset($_GET['action'])) {
 else {
     readAll();
 }
-
 

@@ -4,6 +4,15 @@
 <div class='bloc-page'>
     <section class="create">
         <p class="admin">Page d'administration</p>
+
+        <p class ="report">Commentaire(s) signalé(s) : </p>
+        <?php foreach
+            ($listReports as $data) :
+                 ?>
+        <p><?= htmlspecialchars_decode($data->comment) ?></p>
+        <?php    endforeach; ?> 
+
+
         <?php //print $_SESSION['user_role'];?>
         <form action="index.php?action=newPost" method="post">
         <p class="title">- Ajout d'un nouvel article</p>
@@ -19,7 +28,10 @@
     <section class="posts">
         <div class="chapters">
             <div class="content">
-            <p class="title">- liste des chapitres</p>
+           
+            
+
+            <p class="title">- Liste des chapitres</p>
                 <?php foreach 
                 ($posts as $data) : 
                  ?>
@@ -36,9 +48,8 @@
                 <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?></p>
                 <?php 
                 ?>
-                <?php
-                    endforeach;
-                ?> 
+
+        <?php    endforeach; ?> 
             </div>    
         </div>         
     </section> 

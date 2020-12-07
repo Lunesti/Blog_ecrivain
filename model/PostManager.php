@@ -3,16 +3,18 @@
 require_once('model/Manager.php');
 require_once('Entity/Post.php');
 
-class PostManager {
+class PostManager
+{
 
     //Afficher les posts
-    public function getPosts() {
+    public function getPosts()
+    {
         /*Connexion à la base*/
         $connexion = new Manager();
         $db = $connexion->dbConnect();
         /*..*/
 
-        /*Requête préparée*/
+        /*Requête*/
         $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date_fr DESC');
         /*On définit le mode de récupération de la requête*/
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
@@ -22,21 +24,22 @@ class PostManager {
     }
 
     //Afficher un post et ses commentaires
-    public function getPost($id) {
+    public function getPost($id) 
+    {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
+         /*Récupère le champs id, titre et contenu de la table post lorsque l'id = ?*/
         $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
+        //On récupère dans le array l'id du post
         $req->execute(array($id));
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
-        //var_dump($post);
         $post = $req->fetch();
         return $post;
-     
     }
 
     //Ajouter un nouvel article
-    public function addPost($newPost) {
-        
+    public function addPost($newPost)
+    { //$newPost est un nouvel objet qui va contenir le titre et le contenu
         $connexion = new Manager();
         $db = $connexion->dbConnect();
         $post = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES( :title, :content, NOW())');
@@ -48,11 +51,14 @@ class PostManager {
     }
 
     //Modifier un article
-    public function getUpdate($post) {
+    public function getUpdate($post)
+    { //$post est notre nouvel objet qui va contenir le titre et le contenu
         $connexion = new Manager();
         $db = $connexion->dbConnect();
+        /*Modifie dans la table posts : le titre, le contenu quand l'id = ?*/
         $update = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
         $update->execute(array(
+            /*Assigner aux marqueurs nominatifs l'objet $post qui appel le getter titre, contenu et id */
             "title"=> $post->getTitle(),
             "content"=> $post->getContent(),
             "id"=> $post->getId()
@@ -62,21 +68,15 @@ class PostManager {
     }
 
     //Supprimer un article
-    public function getDelete($id) {
+    public function getDelete($id)
+    {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
+        /*Supprime dans la table posts quand l'id = ? */
         $req = $db->prepare('DELETE FROM posts WHERE id = :id');
         $delete = $req->execute(array(
             "id" => $id
         ));
-        //var_dump($delete);
         return $delete;
     }
-
- public function reportComment($report) {
-        $connexion = new Manager();	        
-        $db = $connexion->dbConnect();	       
-        $req = $db->query("SELECT* FROM members INNER JOIN comment ON members.id = comment.id ");	     
-        $report = $req->fetch();	       
-        var_dump($report);	        
-        return $report;     	     
+}

@@ -121,6 +121,12 @@
     }
     li a {
         color: #333;
+        /*Paramétrage des blocs*/
+    }
+    nav,
+    .bloc-page,
+    footer {
+        width: 100%;
     }
 }
 

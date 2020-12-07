@@ -7,8 +7,6 @@
    
         <ul class ="navigation">
             <li><!-- <img src="https://img.icons8.com/color/48/000000/home.png"/>--><a href="index.php">Accueil</a></li>
-            <li><!-- <img src="https://img.icons8.com/color/48/000000/open-book.png"/>--><a href="">Chapitres</a></li>
-            <li><!-- <img src="https://img.icons8.com/color/48/000000/contact-card.png"/>--><a href="">Contact</a></li>
             <?php
             if(isset($_SESSION['loggedin'])) {
                if($_SESSION['loggedin'] === true) {?>

@@ -11,9 +11,6 @@ class Comments {
     private $_report;
 
     //GETTERS
-    public function getReport() {
-        return $this->_report;
-    }
 
     public function getId() {
         return $this->_id;
@@ -35,7 +32,16 @@ class Comments {
         return $this->_comment_date;
     }
 
+    public function getReport() {
+        return $this->_report;
+    }
+
     //SETTERS
+
+    public function setId($id) {
+        $this->_id = $id;
+    }
+
     public function setAuthor($author) {
         $this->_author = $author;
     }
@@ -44,10 +50,12 @@ class Comments {
         $this->_comments = $comment;
     }
 
-
     public function setDate($date) {
         $this->_comment_date = $date;
     }
 
+    public function setReport($report) {
+        $this->_report = $report;
+    }
 
 }
