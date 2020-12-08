@@ -52,11 +52,16 @@ if (isset($_GET['action'])) {
             }
         }
     //Supprimer un post    
-    } elseif ($_GET['action'] == 'delete') {
+    }
+    
+    elseif($_GET['action'] == 'moderate') {
+        moderate($_GET['id']);
+    }
+        elseif ($_GET['action'] == 'delete') {
         deletePost($_GET['id']);
     }
     elseif ($_GET['action'] == 'deleteComment') {
-        deleteComment($_GET['id']);
+        deleted($_GET['id']);
     }
 
     //Afficher la page d'inscription 

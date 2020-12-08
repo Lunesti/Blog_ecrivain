@@ -30,7 +30,7 @@ class PostManager
         $db = $connexion->dbConnect();
          /*Récupère le champs id, titre et contenu de la table post lorsque l'id = ?*/
         $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
-        //On récupère dans le array l'id du post
+        //On passe dans le array l'id du post
         $req->execute(array($id));
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         $post = $req->fetch();

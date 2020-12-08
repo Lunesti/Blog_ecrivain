@@ -13,7 +13,7 @@
                     <p class="title"><?= htmlspecialchars_decode(substr($post->title,0,200))?><span> le <?= $post->creation_date_fr ?></span></p>
                     <p class="element"><span><?= nl2br(htmlspecialchars_decode($post->content)) ?></span></p>
 
-                    <?php //Si l'utilisateur est un admin, on accèdes aux paramètres admin
+                    <?php //Si l'utilisateur est un admin, on accède aux paramètres admin
                     if(isset($_SESSION['username'])) {
                         if ($_SESSION['user_role'] == 'admin') {
                          ?>

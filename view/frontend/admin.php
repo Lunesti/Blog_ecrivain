@@ -7,11 +7,11 @@
 
         <p class ="report">Commentaire(s) signalé(s) : </p>
         <?php foreach
-            ($listReports as $data) :
+            ($listReports as $data) : 
                  ?>
-        <p><?= htmlspecialchars_decode($data->comment) ?></p>
+        <p><?= htmlspecialchars_decode($data->comment) ?> <a class="comment" href="index.php?action=moderate&amp;id=<?= $data->id ?>">Modérer</a></p>
+        
         <?php    endforeach; ?> 
-
 
         <?php //print $_SESSION['user_role'];?>
         <form action="index.php?action=newPost" method="post">

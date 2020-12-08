@@ -27,9 +27,9 @@ function connect($pseudo) {  //Connexion
             $_SESSION['username'] = $_POST['username'];
             $_SESSION['user_role'] = $login['user_role'];
             if ($_SESSION['user_role'] == 'user') {     
-                require('view/frontend/listPostsView.php');
+                header('Location:index.php?action=listPosts');
             } else{
-                adminPage();
+                header('Location:index.php?action=admin');
             }
         }
     }
@@ -49,14 +49,4 @@ function userConnexion() {
 //Rediriger vers la page de connexion Admin
 function adminConnexion() {
     require('View/frontend/adminView.php');
-}
-
-//Rediriger vers la page Admin
-function adminPage() {
-    $postManager = new PostManager();
-    $posts = $postManager->getPosts();
-    $commentManager = new CommentManager();
-    $comments = $commentManager->getComments();
-    $listReports = $commentManager->getReports();
-    require('View/frontend/admin.php');
 }
