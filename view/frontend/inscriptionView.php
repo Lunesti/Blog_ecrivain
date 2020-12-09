@@ -4,12 +4,12 @@
         <section class="inscription">
             <p class="connexion_title">Inscription</p>
             <form action="index.php?action=subscribed" method="post">
-                <p>
-                    <label for="pseudo">Entrer un pseudo : <input type="text" name="pseudo"></label><br>
-                    <label for="pass">Entrer un password : <input type="text" name="pass"></label><br>
-                    <label for="pass">Retapez votre password : <input type="text" name="pass"></label><br>
-                    <label for="email">Entrer un email : <input type="text" name="email"></label><br>
-                    <input type="submit" name="submit">
+                <p class='form'>
+                    <p><label for="pseudo">Entrer un pseudo : <input type="text" name="pseudo"></label></p><br>
+                    <p><label for="pass">Entrer un password : <input type="text" name="pass"></label></p><br>
+                    <p><label for="pass">Retapez votre password : <input type="text" name="pass"></label></p><br>
+                    <p><label for="email">Entrer un email : <input type="text" name="email"></label></p><br>
+                    <p><input type="submit" id="submit" name="submit"></p>
                 </p>
                 
             </form>

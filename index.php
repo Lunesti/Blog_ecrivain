@@ -1,9 +1,12 @@
 <?php
 session_start();
-require('controller/Controller_CRUD.php');
-require('controller/Controller_subscribe.php');
-require('controller/Controller_connexion.php');
-require('controller/Controller_comment.php');
+
+ini_set('display_errors', 'on');
+
+require('Controller/Controller_CRUD.php');
+require('Controller/Controller_subscribe.php');
+require('Controller/Controller_connexion.php');
+require('Controller/Controller_comment.php');
 
 //Afficher les posts
 if (isset($_GET['action'])) {

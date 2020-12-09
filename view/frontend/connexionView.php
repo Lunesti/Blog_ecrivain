@@ -14,8 +14,8 @@
                     </p>                    
                 </form>
             </section>
-            <footer></footer>
+            <?php include('footer.php'); ?>  
         </div>
         <?php $content = ob_get_clean(); ?>
 <?php include('html.php'); ?>
-<?php include('footer.php'); ?>      
+   

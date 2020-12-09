@@ -27,13 +27,13 @@
                     <h2>Commentaires</h2>
                        
                     <form action="index.php?action=addComment&amp;id=<?= $post->id ?>" method="post">
-                    <?php// endforeach ?>
+            
                     <?php  //Si une session est ouverte, on affiche le pseudo utilisateur
                     if(isset($_SESSION['username'])) {
                         ?> <p><span class="user"><?php print $_SESSION['username'];?></span></p>
                          <p>
                         <textarea id="comment" name="comment"  rows="4" cols="150" placeholder="Veuillez saisir votre commentaire içi..."></textarea>  <br>                   
-                        <input type="submit"/>                             
+                        <input id="submit" type="submit"/>                             
                     </p>
                     <?php } else {
                          ?><p><a class="com_if_connect" href="index.php?action=connexion">Veuillez vous connecter pour pouvoir laisser un commentaire </a></p>
@@ -47,7 +47,6 @@
                     <?php foreach($comment as $data) :  ?>
 
                     <p><strong>    <?php
-                        var_dump($data->id);
                     ?>  <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="comment_date">le  <?= $data->comment_date_fr?></span></p>
         
                     <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a class="comment" href="index.php?action=report&amp;id=<?= $data->id ?>"> Signaler</a></p>
@@ -59,8 +58,9 @@
                     
                 </div>
             </div>
-    </section>       
+    </section> 
+    <?php include('footer.php'); ?>        
 </div>   
 <?php $content = ob_get_clean(); ?>
  <?php require('html.php'); ?>     
- <?php include('footer.php'); ?>   
+  

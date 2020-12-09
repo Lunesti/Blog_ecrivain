@@ -22,7 +22,8 @@ header p,
 p.title,
 p.description,
 p.content,
-.date {
+.date,
+p.admin {
     font-size: 1.2em;
     list-style: none;
 }
@@ -158,6 +159,7 @@ nav .menu-icon {
 }
 
 .banniere img {
+    margin-top: 20px;
     width: 90%;
     padding-bottom: 50px;
 }
@@ -196,7 +198,8 @@ section.intro {
     border-bottom: 2px solid #333;
 }
 
-.description {
+.description,
+p.writer {
     text-align: center;
     width: 90%;
 }
@@ -210,11 +213,6 @@ section.intro {
 
 
 /*Lien vers commentaires*/
-
-.writer {
-    text-align: center;
-    margin-bottom: 50px;
-}
 
 
 /*page postview*/
@@ -253,13 +251,13 @@ section .inscription {
 /*Page admin */
 
 .admin {
+    padding: 20px;
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 .create {
-    display: flex;
     flex-direction: column;
     height: auto;
     margin: 0 5% 0 5%;
@@ -268,10 +266,14 @@ section .inscription {
 footer {
     display: flex;
     justify-content: center;
+    width: 90%;
+    margin: auto;
 }
 
 footer p {
-    color: rgb(212, 212, 212);
+    color: #444;
+    text-align: center;
+    margin-top: 50px;
 }
 
 .report {

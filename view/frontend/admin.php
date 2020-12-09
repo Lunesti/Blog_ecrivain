@@ -16,10 +16,10 @@
         <?php //print $_SESSION['user_role'];?>
         <form action="index.php?action=newPost" method="post">
         <p class="title">- Ajout d'un nouvel article</p>
-        <p>
-            <label for="title"> Titre du billet :<br> <input type="text" name="title" id="title" required></label><br><br><br>
+        <p class="form">
+            <input type="text" name="title" id="title" required><br><br><br>
             <textarea name="content" id="textarea" cols="30" rows="10" required></textarea><br>
-            <input type="submit" value="submit">
+            <input class="submit" type="submit" value="submit">
         </p>
     </form>
     
@@ -45,7 +45,7 @@
                 <?php foreach
                  ($comments as $data) :
                  ?>
-                <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?></p>
+                <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a class="comment" href="index.php?action=moderate&amp;id=<?= $data->id ?>">Modérer</a></p>
                 <?php 
                 ?>
 
@@ -53,6 +53,7 @@
             </div>    
         </div>         
     </section> 
+    <?php include('footer.php'); ?>  
 </div> 
 
 <?php $content = ob_get_clean(); ?>
