@@ -1,21 +1,25 @@
 <?php ob_start(); ?>
 <?php include('header.php');?>    
-        
+
+
 <div class='bloc-page'>
+<h2>Page d'administration</h2>
+
+<div class="report">  
+    <p>Commentaire(s) signalé(s) : </p>
+    <?php foreach
+        ($listReports as $data) : 
+    ?>
+    <p>  "<?= htmlspecialchars_decode($data->comment) ?>" <a class="comment" href="index.php?action=deleteComment&amp;id=<?= $data->id ?>">(supprimer)</a></p>
+    <?php  endforeach; ?> 
+</div>
+
     <section class="create">
-        <p class="admin">Page d'administration</p>
-
-        <p class ="report">Commentaire(s) signalé(s) : </p>
-        <?php foreach
-            ($listReports as $data) : 
-                 ?>
-        <p><?= htmlspecialchars_decode($data->comment) ?> <a class="comment" href="index.php?action=moderate&amp;id=<?= $data->id ?>">Modérer</a></p>
         
-        <?php    endforeach; ?> 
 
-        <?php //print $_SESSION['user_role'];?>
+       
         <form action="index.php?action=newPost" method="post">
-        <p class="title">- Ajout d'un nouvel article</p>
+        <p class="title"> Ajout d'un nouvel article</p>
         <p class="form">
             <input type="text" name="title" id="title" required><br><br><br>
             <textarea name="content" id="textarea" cols="30" rows="10" required></textarea><br>
@@ -31,7 +35,7 @@
            
             
 
-            <p class="title">- Liste des chapitres</p>
+            <p class="title"> Liste des chapitres</p>
                 <?php foreach 
                 ($posts as $data) : 
                  ?>
@@ -41,15 +45,7 @@
                     endforeach;
                 ?>
                 <br><br>
-                <p class="title">- Liste des commentaires</p>
-                <?php foreach
-                 ($comments as $data) :
-                 ?>
-                <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a class="comment" href="index.php?action=moderate&amp;id=<?= $data->id ?>">Modérer</a></p>
-                <?php 
-                ?>
-
-        <?php    endforeach; ?> 
+        
             </div>    
         </div>         
     </section> 

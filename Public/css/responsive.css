@@ -1,33 +1,39 @@
-@media all and (max-width: 1440px) {
-    h1 {
-        font-size: 2em;
-    }
-    p,
-    li,
-    header p,
-    li a,
-    .date,
-    a.comment,
-    p.report {
-        font-size: 0.9em;
-    }
+@media all and (max-width: 1200px) {
     nav,
     .bloc-page {
-        width: 60%;
+        width: 900px;
     }
 }
 
-@media all and (max-width: 1200px) {
-    .bloc-page,
-    nav {
-        width: 700px;
+@media all and (max-device-width:992px) {
+    nav,
+    .bloc-page {
+        width: 650px;
     }
-    h1 {
-        font-size: 1.7em;
+    section.inscription {
+        padding-bottom: 20px;
+    }
+    .inscription p {
+        text-align: left;
+    }
+    .inscription input {
+        float: right;
+        padding: 5px 150px 5px 150px;
+    }
+    .inscription input#submit {
+        padding: 5px 100px 5px 100px;
+    }
+    .create #title,
+    .create textarea {
+        width: 400px;
     }
 }
 
-@media all and (max-device-width: 869px) {
+@media all and (max-device-width:768px) {
+    nav,
+    .bloc-page {
+        width: auto;
+    }
     nav .menu-icon {
         display: block;
     }
@@ -41,9 +47,9 @@
         flex-wrap: wrap;
         height: 100px;
         line-height: 100px;
-    }
-    header p {
-        width: 80%;
+        left: 0;
+        transform: inherit;
+        width: 100%;
     }
     nav .navigation {
         width: 100%;
@@ -59,15 +65,19 @@
     nav li {
         line-height: 50px;
     }
+    li a {
+        color: #333;
+    }
     .menu-icon .navicon {
         background: #FFF;
         display: block;
         height: 2px;
         position: relative;
         transition: background .2s ease-out;
-        width: 18px;
+        width: 30px;
     }
     nav .menu-icon {
+        right: 40px;
         margin: 0 5% 0 0;
         cursor: pointer;
         /*display: inline-block;*/
@@ -86,10 +96,10 @@
         width: 100%;
     }
     .menu-icon .navicon:before {
-        top: 5px;
+        top: 8px;
     }
     .menu-icon .navicon:after {
-        top: -5px;
+        top: -8px;
     }
     nav .menu-btn:checked~.navigation {
         transition: all .5s ease;
@@ -109,112 +119,29 @@
     nav .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
         top: 0;
     }
-}
-
-@media all and (max-device-width:768px) {
-    .connexion p.connexion_title,
-    .inscription p.connexion_title {
-        font-size: 2em;
-    }
-    p.admin {
-        padding: 30px;
-    }
-    h1 {
-        font-size: 2.5em;
-    }
-    #submit {
-        width: 40%;
-        height: 30px;
-    }
-    p.title,
-    .connexion p,
-    .inscription p,
-    li,
-    header p,
-    p.content,
-    textarea,
-    #submit,
-    .create .title,
-    .create .report {
-        font-size: 1.7em;
-    }
-    .inscription p {
-        text-align: left;
-        margin: 20px auto 0px 30px;
-    }
-    p.connexion_title {
-        text-align: center;
-        margin-bottom: 60px;
-    }
-    .connexion input,
-    .inscription input {
-        width: 50%;
-        height: 30px;
-        margin: 0 30px 10px auto;
-        font-size: 0.7em;
-    }
-    .create form input,
-    .create form textarea {
-        width: 90%;
-        margin-left: 5%;
-    }
-    .create form input {
-        height: 30px;
-    }
     .inscription input {
         float: right;
-    }
-    p.title {
-        height: auto;
-        text-align: center;
-        padding: 20px;
-    }
-    .create form .submit {
-        margin-top: 20px;
-        height: 50px;
-        font-size: 1.4em;
-    }
-    li a {
-        color: #333;
-        /*Paramétrage des blocs*/
-    }
-    nav,
-    .bloc-page,
-    footer {
-        width: 100%;
+        padding: 5px 200px 5px 200px;
     }
 }
 
 @media all and (max-device-width:500px) {
-    .inscription p.connexion_title,
-    .connexion p.connexion_title,
-    p.admin,
-    h1 {
-        font-size: 3em;
-        text-decoration: none;
-    }
-    p.title,
-    .connexion p,
-    .inscription p,
-    li,
-    header p,
-    p.content {
-        font-size: 1.8em;
-    }
-    .create form input,
-    .create form textarea {
-        width: 90%;
-    }
     .content p {
         text-align: center;
     }
-    .connexion input {
+    .connexion input,
+    #submit {
         width: 50%;
         height: 40px;
         margin-bottom: 20px;
-        font-size: 0.9em;
     }
-    li a {
+    .content #submit,
+    .create #submit {
         color: #333;
+        float: left;
+    }
+    .create #title,
+    .create textarea {
+        width: 100%;
     }
 }

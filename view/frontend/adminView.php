@@ -4,7 +4,7 @@
         <div class="bloc-page">
             <section class="connexion">
                 <form action="index.php?action=connected" method="post">
-                <p class="connexion_title">Espace administrateur</p>
+                <h2>Espace administrateur</h2>
                 <p><img src="public/img/user.png" alt="user"></p>
                     <p>                  
                         <label for="username"> <input type="text" name="username" placeholder="Username"></label><br>

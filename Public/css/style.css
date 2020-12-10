@@ -10,22 +10,17 @@ body {
 
 * {
     font-family: sans-serif;
+    font-size: 1em;
+    list-style: none;
+    text-decoration: none;
 }
 
 h1 {
     font-size: 2.5em;
 }
 
-a.comment,
-li,
-header p,
-p.title,
-p.description,
-p.content,
-.date,
-p.admin {
-    font-size: 1.2em;
-    list-style: none;
+a {
+    color: purple;
 }
 
 p,
@@ -35,59 +30,26 @@ h1,
     color: #333;
 }
 
-span.user {
-    font-weight: bold;
-}
-
+span.user,
 .writer {
     font-weight: bold;
 }
 
-.return_post a {
-    font-style: italic;
-    font-size: 0.8em;
-}
-
-a.com_if_connect {
-    font-style: italic;
-    font-size: 0.8em;
-}
-
-.comment {
-    color: purple;
-    font-style: italic;
-}
-
-.comment_date {
-    color: rgb(121, 121, 121);
-    font-style: italic;
-}
-
+.return_post a,
+a.com_if_connect,
 .date {
     font-style: italic;
 }
 
+ul li,
 li a,
 header p {
     color: #FFF;
 }
 
-header p {
-    text-decoration: underline;
-}
-
-nav li a {
-    text-decoration: none;
-}
-
 .content a {
     color: purple;
     text-decoration: none;
-}
-
-ul li {
-    color: #FFF;
-    list-style: none;
 }
 
 
@@ -102,6 +64,7 @@ ul li {
 nav,
 .bloc-page {
     width: 1200px;
+    padding: 0 40px 0 40px;
 }
 
 .bloc-page {
@@ -127,12 +90,8 @@ nav {
     z-index: 3;
 }
 
-header p {
-    margin: 0 0 0 5%;
-}
-
 nav .navigation {
-    margin: 0 5% 0 0;
+    padding-right: 40px;
     clear: none;
     float: right;
     max-height: none;
@@ -140,9 +99,7 @@ nav .navigation {
 }
 
 .navigation li:nth-child(1),
-.navigation li:nth-child(2),
-.navigation li:nth-child(3),
-.navigation li:nth-child(4) {
+.navigation li:nth-child(2) {
     padding-right: 20px;
 }
 
@@ -154,62 +111,50 @@ nav .menu-icon {
 
 /*Banniere*/
 
-.banniere {
-    text-align: center;
-}
-
 .banniere img {
     margin-top: 20px;
-    width: 90%;
+    width: 100%;
     padding-bottom: 50px;
 }
 
 h1 {
     text-decoration: underline;
     text-align: center;
-    padding: 0 0 30px 0;
+    padding: 30px;
 }
 
 
 /*Texte d'intro*/
 
 section.intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: auto;
+}
+
+p.writer {
+    text-align: center;
 }
 
 
 /*Les billets*/
 
-.chapters {
-    margin-top: 20px;
-}
-
-.posts {
-    width: 90%;
-    margin-left: 5%;
-}
-
 .title {
-    height: 30px;
+    text-align: left;
     font-weight: bold;
     border-bottom: 2px solid #333;
 }
 
 .description,
-p.writer {
-    text-align: center;
-    width: 90%;
+.posts {
+    text-align: left;
 }
 
-.content :nth-child(2) {
+
+/*.content :nth-child(2) {
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
-}
+}*/
 
 
 /*Lien vers commentaires*/
@@ -224,49 +169,27 @@ p.writer {
 
 /*Page connexion*/
 
-section .connexion,
-section .inscription {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.connexion_title {
-    font-size: 1.5em;
-}
-
+h2,
 .connexion p,
 .inscription p {
+    margin: 0;
     text-align: center;
-}
-
-.connexion input,
-.inscription input {
-    margin-bottom: 10px;
+    padding: 10px;
 }
 
 
 /*Page admin */
 
-.admin {
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    text-transform: uppercase;
+div.report {
+    padding: 20px 0 50px 0;
+    text-align: left;
 }
 
-.create {
-    flex-direction: column;
-    height: auto;
-    margin: 0 5% 0 5%;
+p.form {
+    text-align: left;
 }
 
 footer {
-    display: flex;
-    justify-content: center;
-    width: 90%;
     margin: auto;
 }
 
@@ -276,7 +199,9 @@ footer p {
     margin-top: 50px;
 }
 
-.report {
-    color: red;
+.report p:nth-child(1) {
+    color: rgb(218, 36, 36);
+    padding: 10px 0 10px 0;
     font-weight: bold;
+    margin: 0;
 }

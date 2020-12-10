@@ -5,7 +5,7 @@
     <?php include('intro.php');?>
     <section class="posts">
             <div class="chapters">
-                <div clas="content">
+                <div class="content">
           
                 <p class="return_post"><a href="index.php">&#x2190; Retour à la liste des billets</a></p>
                 <br>
@@ -31,9 +31,9 @@
                     <?php  //Si une session est ouverte, on affiche le pseudo utilisateur
                     if(isset($_SESSION['username'])) {
                         ?> <p><span class="user"><?php print $_SESSION['username'];?></span></p>
-                         <p>
+                    <p>
                         <textarea id="comment" name="comment"  rows="4" cols="150" placeholder="Veuillez saisir votre commentaire içi..."></textarea>  <br>                   
-                        <input id="submit" type="submit"/>                             
+                        <input type="submit" id="submit" name="submit" value="Envoyer"><br>                           
                     </p>
                     <?php } else {
                          ?><p><a class="com_if_connect" href="index.php?action=connexion">Veuillez vous connecter pour pouvoir laisser un commentaire </a></p>
@@ -47,7 +47,7 @@
                     <?php foreach($comment as $data) :  ?>
 
                     <p><strong>    <?php
-                    ?>  <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="comment_date">le  <?= $data->comment_date_fr?></span></p>
+                    ?>  <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="date">le  <?= $data->comment_date_fr?></span></p>
         
                     <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a class="comment" href="index.php?action=report&amp;id=<?= $data->id ?>"> Signaler</a></p>
 

@@ -2,7 +2,7 @@
 <?php include('header.php');?>        
     <div class="bloc-page">
         <section class="inscription">
-            <p class="connexion_title">Inscription</p>
+            <h2>Inscription</h2>
             <form action="index.php?action=subscribed" method="post">
                 <p class='form'>
                     <p><label for="pseudo">Entrer un pseudo : <input type="text" name="pseudo"></label></p><br>
