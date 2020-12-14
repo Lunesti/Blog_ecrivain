@@ -31,6 +31,7 @@
     <?php include('footer.php'); ?>  
 </div>
 <?php $content = ob_get_clean(); ?>
+
 <?php include('html.php'); ?>   
  
 

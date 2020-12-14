@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `email` varchar(255) NOT NULL,
   `inscription_date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `members`
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `creation_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `title` (`title`)
-) ENGINE=MyISAM AUTO_INCREMENT=184 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=184 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `posts`
