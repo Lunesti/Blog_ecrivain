@@ -6,7 +6,7 @@
       plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
       toolbar_mode: 'floating',
    });</script>
-<?php include('header.php');?>    
+<?php include('templates/header.php');?>    
 <div class='bloc-page'>
 <h2>Page d'administration</h2>
 
@@ -45,7 +45,7 @@
                 ($posts as $data) : 
                  ?>
                 <p class="titleChapters"><?= htmlspecialchars_decode($data->title); ?>, écrit le : <?= $data->creation_date_fr; ?> </p>
-                <p><a class="comment" href="index.php?action=adminpost&amp;id=<?= $data->id ?>">Acceder à l'article</a></p> 
+                <p><a href="index.php?action=adminpost&amp;id=<?= $data->id ?>">Acceder à l'article</a></p> 
                 <?php
                     endforeach;
                 ?>
@@ -54,12 +54,12 @@
             </div>    
         </div>         
     </section> 
-    <?php include('footer.php'); ?>  
+    <?php include('templates/footer.php'); ?>  
     
 </div> 
 
 <?php $content = ob_get_clean(); ?>
-<?php include('html.php'); ?>  
+<?php include('templates/html.php'); ?>  
 
 
 

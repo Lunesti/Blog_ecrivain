@@ -43,10 +43,10 @@ function logOut() { //Deconnexion
 
 //Rediriger vers la page de connexion User
 function userConnexion() {
-    require('View/frontend/connexionView.php');
+    require('View/frontend/connexionUserView.php');
 }
 
 //Rediriger vers la page de connexion Admin
 function adminConnexion() {
-    require('View/frontend/adminView.php');
+    require('View/frontend/connexionAdminView.php');
 }

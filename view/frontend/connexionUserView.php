@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<?php include('header.php');?>  
+<?php include('templates/header.php');?>  
         <div class="bloc-page">
             <section class="connexion">
                 <form action="index.php?action=connected" method="post">                    
@@ -13,8 +13,8 @@
                     </p>                    
                 </form>
             </section>
-            <?php include('footer.php'); ?>  
+            <?php include('templates/footer.php'); ?>  
         </div>
         <?php $content = ob_get_clean(); ?>
-<?php include('html.php'); ?>
+<?php include('templates/html.php'); ?>
    

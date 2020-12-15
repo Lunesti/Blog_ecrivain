@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<?php include('header.php');?>        
+<?php include('templates/header.php');?>        
 <div class='bloc-page'>
 
             <h3>Modifiez un billet existant à l'aide des champs ci-dessous :</h3>
@@ -11,5 +11,5 @@
                 <p><input type="submit"></p>
             </form>
 <?php $content = ob_get_clean(); ?>
-<?php include('html.php'); ?>   
-<?php include('footer.php'); ?>   
+<?php include('templates/html.php'); ?>   
+<?php include('templates/footer.php'); ?>   

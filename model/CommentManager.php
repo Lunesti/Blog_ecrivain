@@ -73,22 +73,6 @@ class CommentManager {
         return $listReports;
     }
 
-    //Récupérer le commentaire à modérer
-    public function moderateComment($id) 
-    {
-        $connexion = new Manager();
-        $db = $connexion->dbConnect();
-        /*Selectionne le champs id, author et comment dans la table comment quand report = 1 et l'id = ?*/
-        $req = $db->prepare("SELECT id, author, comment, report FROM comment WHERE report = 1 and id = :id");
-        $req->execute(array(
-            "id"=>$id
-        ));
-        $req->setFetchMode(\PDO::FETCH_CLASS, Comments::class);
-        $moderate = $req->fetch();
-        var_dump($moderate);
-        return $moderate;
-    }
-
     //Modérer le commentaire 
     public function deleteComment($id) 
     {

@@ -32,19 +32,6 @@ function listReports($id)
     header('Location: index.php?action=listPosts');
 }
 
-
-//Afficher la page de modération de commentaire + le commentaire à modérer
-function moderate($id)
- {
-    //On crée une nouvelle instance de CommentManager
-    $commentManager = new CommentManager();
-     //On appel la méthode moderateComment en lui passant l'id du commentaire à modérer
-    $moderate = $commentManager->moderateComment($id);
-    //la variable $moderate contient les infos du commentaire à modérer, qu'on va récupérer dans la vue et l'utiliser pour afficher ses infos
-    require('view/frontend/moderateView.php');
-}
-
-
 //Supprimer le commentaire
 function deleted($id) 
  {

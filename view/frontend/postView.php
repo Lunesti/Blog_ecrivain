@@ -1,8 +1,8 @@
 
 <?php ob_start(); ?>
-<?php include('header.php');?>            
+<?php include('templates/header.php');?>            
 <div class="bloc-page">
-    <?php include('intro.php');?>
+    <?php include('templates/intro.php');?>
     <section class="posts">
             <div class="chapters">
                 <div class="content">
@@ -17,8 +17,8 @@
                     if(isset($_SESSION['username'])) {
                         if ($_SESSION['user_role'] == 'admin') {
                          ?>
-                         <a class="comment" href="index.php?action=updatePost&amp;id=<?= $post->id ?>">Modifier</a>
-                         <a class="comment" href="index.php?action=delete&amp;id=<?= $post->id ?>">Supprimer</a>
+                         <a href="index.php?action=updatePost&amp;id=<?= $post->id ?>">Modifier</a>
+                         <a href="index.php?action=delete&amp;id=<?= $post->id ?>">Supprimer</a>
                     <?php
                         }
                     }
@@ -49,7 +49,7 @@
                     <p><strong>    <?php
                     ?>  <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="date">le  <?= $data->comment_date_fr?></span></p>
         
-                    <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a class="comment" href="index.php?action=report&amp;id=<?= $data->id ?>"> Signaler</a></p>
+                    <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a href="index.php?action=report&amp;id=<?= $data->id ?>"> Signaler</a></p>
 
                     <br>
                     <?php
@@ -59,8 +59,8 @@
                 </div>
             </div>
     </section> 
-    <?php include('footer.php'); ?>        
+    <?php include('templates/footer.php'); ?>        
 </div>   
 <?php $content = ob_get_clean(); ?>
- <?php require('html.php'); ?>     
+ <?php require('templates/html.php'); ?>     
   
