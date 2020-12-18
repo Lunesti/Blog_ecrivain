@@ -49,8 +49,13 @@
                     <p><strong>    <?php
                     ?>  <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="date">le  <?= $data->comment_date_fr?></span></p>
         
-                    <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a href="index.php?action=report&amp;id=<?= $data->id ?>"> Signaler</a></p>
-
+                    <p>
+                    <?php if($data->report == 1) {
+                         ?>
+                        <p><?=nl2br(htmlspecialchars_decode($data->comment)) ?> <span class="report">(commentaire signalé)</span></p> 
+                    <?php } else {  ?>
+                       <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a href="index.php?action=report&amp;id=<?= $data->id ?>"> Signaler</a></p> 
+                   <?php } ?>
                     <br>
                     <?php
                         endforeach;

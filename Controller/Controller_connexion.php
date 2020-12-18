@@ -11,7 +11,7 @@ function connect($pseudo) {  //Connexion
     $postManager = new PostManager();
     $listposts =  $postManager->getPosts(); //Cette ligne sert à récupérer les données de posts
     $connect = new Members();
-    $login = $connect->getConnexion($connexion);
+    $login = $connect->connexion($connexion);
 
 
     $isPasswordCorrect = password_verify($_POST['userpass'], $login['pass']);  

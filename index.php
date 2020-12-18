@@ -69,7 +69,7 @@ if (isset($_GET['action'])) {
 
     //Afficher la page d'inscription 
     elseif($_GET["action"] == "subscription") {
-        subscription();
+        subscribeView();
     }
     //Inscription
     elseif ($_GET['action'] == 'subscribed') {

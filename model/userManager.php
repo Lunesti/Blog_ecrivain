@@ -20,7 +20,7 @@ class Members {
         return $subscribe;
     }
 
-    public function getConnexion($pseudo) {
+    public function connexion($pseudo) {
         //  Récupération de l'utilisateur et de son pass haché
         $connexion = new Manager();
         $db = $connexion->dbConnect();

@@ -166,6 +166,10 @@ p.writer {
     width: 100%;
 }
 
+span.report {
+    color: red;
+}
+
 
 /*Page connexion*/
 

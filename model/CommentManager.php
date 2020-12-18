@@ -27,7 +27,8 @@ class CommentManager {
         $db = $connexion->dbConnect();
         /*Sélectionne le champs id, author et comment dans la table comment*/
         $req = $db->query('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comment ORDER BY comment_date DESC');
-         /*On définit le mode de récupération de la requête*/
+         /*On définit le mode de récupération de la requête
+         Récupérer sous forme d'objet la requete*/
         $req->setFetchMode(\PDO::FETCH_CLASS, Comments::class);
         $comments = $req->fetchAll();
         return $comments;
@@ -39,7 +40,7 @@ class CommentManager {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
         /*Récupère le champ id, author, comment et la date quand l'id du post = ? */
-        $req = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comment WHERE post_id = ? ORDER BY comment_date DESC');
+        $req = $db->prepare('SELECT id, author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comment WHERE post_id = ? ORDER BY comment_date DESC');
         $req->setFetchMode(\PDO::FETCH_CLASS, Comments::class);
         /*On passe dans le array l'id du post*/
         $req->execute(array($postId));
@@ -62,7 +63,7 @@ class CommentManager {
 }
 
     //Afficher les commentaires signalés 
-    public function getCommentReports() 
+    public function showReports() 
     {
         $connexion = new Manager();
         $db = $connexion->dbConnect();

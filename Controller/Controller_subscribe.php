@@ -21,6 +21,6 @@ function subscribe($pseudo, $pass, $email) {  //Inscription
 }
 
 //Rediriger vers la page d'inscription
-function subscription() {
+function subscribeView() {
     require('View/frontend/inscriptionView.php');
 }

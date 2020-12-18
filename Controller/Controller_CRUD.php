@@ -44,7 +44,7 @@ function update($id, $title, $content)
     $update->setId($id);
     /*On crée une nouvelle instance de postManager et on passe en paramètre l'objet $update dans la méthode getUpdate*/
     $postManager = new PostManager();
-    $postEdit = $postManager->getUpdate($update);
+    $postEdit = $postManager->updatePost($update);
     header('Location: index.php?action=listPosts');
 }
 
@@ -60,7 +60,7 @@ function deletePost($id) /*On récupère le post à supprimer*/
  {
     $postManager = new PostManager();  
     /*On appel la méthode getDelete en lui passant l'id du post à supprimer*/
-    $postManager->getDelete($id);
+    $postManager->deletePost($id);
     header('Location: index.php?action=listPosts');
 }
 
@@ -70,7 +70,7 @@ function adminPage() {
     $posts = $postManager->getPosts();
     $commentManager = new CommentManager();
     $comments = $commentManager->getComments();
-    $listReports = $commentManager->getCommentReports();
-    require('View/frontend/admin.php');
+    $listReports = $commentManager->showReports();
+    require('View/frontend/adminView.php');
 }
 

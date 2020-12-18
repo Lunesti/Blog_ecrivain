@@ -16,8 +16,10 @@ class PostManager
 
         /*Requête*/
         $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date_fr DESC');
-        /*On définit le mode de récupération de la requête*/
+        /*On définit le mode de récupération de la requête
+         Récupérer sous forme d'objet la requete*/
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
+        /*Fetch* All pour récupérer tout ce dont on a besoin*/
         $posts = $req->fetchAll();
         //var_dump($posts);
         return $posts;
@@ -51,7 +53,7 @@ class PostManager
     }
 
     //Modifier un article
-    public function getUpdate($post)
+    public function updatePost($post)
     { //$post est notre nouvel objet qui va contenir le titre et le contenu
         $connexion = new Manager();
         $db = $connexion->dbConnect();
@@ -68,7 +70,7 @@ class PostManager
     }
 
     //Supprimer un article
-    public function getDelete($id)
+    public function deletePost($id)
     {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
