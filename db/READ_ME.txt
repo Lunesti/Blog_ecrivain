@@ -8,6 +8,13 @@ votre login MySQL ;
 
 votre mot de passe MySQL ;
 
-le nom de la base de données, si elle a déjà été créée ;
-
 Vous trouverez toute ces informations sur le site de votre hebergeur.
+
+Vous devez également importer la base de données SQL que je vous ai envoyé dans votre base sur le site de votre hébergeur.
+
+
+Vous devez apporter les modifications lors de la connexion à la base de donnée dans le fichier Manager.exe se situant dans le dossier model
+
+Remplacer l'host par votre adresse IP,
+
+remplacer le login et le mot de passe.

@@ -5,7 +5,6 @@ require_once('Entity/Post.php');
 
 class PostManager
 {
-
     //Afficher les posts
     public function getPosts()
     {
@@ -21,7 +20,6 @@ class PostManager
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         /*Fetch* All pour récupérer tout ce dont on a besoin*/
         $posts = $req->fetchAll();
-        //var_dump($posts);
         return $posts;
     }
 
@@ -31,9 +29,13 @@ class PostManager
         $connexion = new Manager();
         $db = $connexion->dbConnect();
          /*Récupère le champs id, titre et contenu de la table post lorsque l'id = ?*/
-        $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = :id');
         //On passe dans le array l'id du post
-        $req->execute(array($id));
+        $req->execute(array(
+            "id" => $id->getId()
+        ));
+        /*On définit le mode de récupération de la requête
+         Récupérer sous forme d'objet la requete*/
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         $post = $req->fetch();
         return $post;
@@ -44,6 +46,7 @@ class PostManager
     { //$newPost est un nouvel objet qui va contenir le titre et le contenu
         $connexion = new Manager();
         $db = $connexion->dbConnect();
+        /*Assigner aux marqueurs nominatifs l'objet $post qui appel le getter titre et contenu*/
         $post = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES( :title, :content, NOW())');
         $post->execute(array(
             "title" => $newPost->getTitle(),
@@ -61,11 +64,11 @@ class PostManager
         $update = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
         $update->execute(array(
             /*Assigner aux marqueurs nominatifs l'objet $post qui appel le getter titre, contenu et id */
+            "id"=> $post->getId(),
             "title"=> $post->getTitle(),
-            "content"=> $post->getContent(),
-            "id"=> $post->getId()
+            "content"=> $post->getContent()
         ));
-        //var_dump($update);
+        var_dump($update);
         return $update;
     }
 
@@ -76,6 +79,7 @@ class PostManager
         $db = $connexion->dbConnect();
         /*Supprime dans la table posts quand l'id = ? */
         $req = $db->prepare('DELETE FROM posts WHERE id = :id');
+        $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         $delete = $req->execute(array(
             "id" => $id
         ));

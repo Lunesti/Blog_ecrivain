@@ -30,10 +30,7 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'newPost') {
         if (isset($_POST['title']) && isset($_POST['content'])) {
             if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                //var_dump(addNewPost($_POST['title'], $_POST['content']));
-                
                 create($_POST['title'], $_POST['content']);
-                var_dump(create($_POST['title'], $_POST['content']));
             } else {
                 print "Veuillez remplir tout les champs !";
             }
@@ -43,7 +40,7 @@ if (isset($_GET['action'])) {
 
     //Afficher la page de modification d'article
     } elseif ($_GET['action'] == 'updatePost') {
-        updatePage();
+        updatePage($_GET['id']);
     }
     //Modifier un post
     elseif ($_GET['action'] == 'postUpdated') {

@@ -12,10 +12,12 @@ function readAll()
 }
 
 function read($id) 
-{   
+{  
     //On crée une nouvelle instance de PostManager et on appel les méthodes getPost et getComment en leur passant à chacun l'id post 
+    $postId = new Post();
+    $postId->setId($id);
     $postManager = new PostManager(); 
-    $post = $postManager->getPost($_GET['id']);
+    $post = $postManager->getPost($postId);
     $commentManager = new CommentManager();
     $comment = $commentManager->getComment($_GET['id']); 
     require('view/frontend/postView.php');
@@ -48,11 +50,13 @@ function update($id, $title, $content)
     header('Location: index.php?action=listPosts');
 }
 
-function updatePage()
+function updatePage($id) //Je récupère l'id du post à modifier
 {
-    /*Je récupère la méthode getPost avec l'id du post pour récupérer le post à modifier et j'appel la vue Update*/
+    $updatePage = new Post();
+    $updatePage->setId($id);
+    /*On passe en paramètre $updatePost qui contient l'id du post à modifier*/
     $postManager = new PostManager(); 
-    $post = $postManager->getPost($_GET['id']);
+    $post = $postManager->getPost($updatePage);
     require("View/frontend/updateView.php");
 }
 
