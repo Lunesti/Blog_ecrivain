@@ -16,8 +16,7 @@
             }else {
                
                 ?>
-                   <li> <!--<img src="https://img.icons8.com/color/48/000000/login-rounded-right.png"/>--><a href="index.php?action=connexion">Connexion </a> <br></li>
-                   <li> <!--<img src="https://img.icons8.com/color/48/000000/administrator-male--v1.png"/>--><a href="index.php?action=connexionAdmin">Espace administrateur</a></li>  
+                   <li> <!--<img src="https://img.icons8.com/color/48/000000/login-rounded-right.png"/>--><a href="index.php?action=connexion">Connectez-vous </a> <br></li>
               <?php 
             }
             ?> 

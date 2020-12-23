@@ -8,7 +8,7 @@ function readAll()
     //Afficher les posts
     $postManager = new PostManager();
     $listposts = $postManager->getPosts();
-    require('view/frontend/listPostsView.php');
+    require('View/frontend/listPostsView.php');
 }
 
 function read($id) 
@@ -20,7 +20,7 @@ function read($id)
     $post = $postManager->getPost($postId);
     $commentManager = new CommentManager();
     $comment = $commentManager->getComment($_GET['id']); 
-    require('view/frontend/postView.php');
+    require('View/frontend/postView.php');
 }
 
 function create($title, $content) 

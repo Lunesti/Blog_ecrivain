@@ -16,7 +16,6 @@ class Members {
             "pass"=> $pass_hache,
             "email"=> $user->getEmail()
         ));
-        var_dump($subscribe);
         return $subscribe;
     }
 

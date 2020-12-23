@@ -23,6 +23,7 @@ a {
     color: purple;
 }
 
+
 p,
 h1,
 .return_post a,
@@ -45,6 +46,10 @@ ul li,
 li a,
 header p {
     color: #FFF;
+}
+
+.admin {
+    color: purple;
 }
 
 .content a {
@@ -201,6 +206,10 @@ footer p {
     color: #444;
     text-align: center;
     margin-top: 50px;
+}
+
+ p.admin {
+    text-align:center;
 }
 
 .report p:nth-child(1) {

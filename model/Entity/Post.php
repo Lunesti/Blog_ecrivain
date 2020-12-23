@@ -7,8 +7,7 @@ class Post {
     private $_title;
     private $_content;
     private $_creation_date;
- 
-
+  
 
     //GETTERS
     public function getId() {
@@ -28,8 +27,6 @@ class Post {
     }
 
     //SETTERS
-
-
     public function setId($id) {
         $this->_id = $id;
     }

@@ -21,7 +21,7 @@ if (isset($_GET['action'])) {
     //Ajouter un commentaire
     elseif ($_GET['action'] == 'addComment') {
         if (isset($_POST['comment']) && !empty($_POST["comment"])) {
-            addComment($_GET['id'], $_SESSION['username'], $_POST['comment']);
+            addComment($_GET['id'], $_SESSION['username'], strip_tags($_POST['comment']));
         } else {
             print "Champs vides ou inexistant";
         }
@@ -72,8 +72,8 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'subscribed') {
         if (!empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['email'])) {
             if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-                subscribe($_POST['pseudo'], $pass_hache, $_POST['email']);
+                //$pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+                subscribe($_POST['pseudo'], $_POST['pass'], $_POST['email']);
             } else {
                 print "L'email n'est pas au bon format !";
             }
@@ -101,7 +101,7 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'connected') {
         if (isset($_POST['username']) && isset($_POST['userpass'])) {
             if (!empty($_POST['username']) && !empty($_POST['userpass'])) {
-                connect($_POST['username']);
+                connect($_POST['username'], $_POST['userpass']);
             } else {
                 print "Veuillez remplir tout les champs !";
             }

@@ -16,7 +16,7 @@
                         ?>
                         <br><br>
             <?php foreach
-                ($listposts as $data) :  //var_dump($data);
+                ($listposts as $data) : 
              ?>
                 <p class="title"><?= htmlspecialchars_decode($data->title); ?>  <span class="date"> le <?= $data->creation_date_fr; ?> </span></p>
                <p class="content">   <?= htmlspecialchars_decode(substr($data->content,0,500)) .'...'; ?></p>
@@ -29,6 +29,7 @@
         </div>                  
     </section>
     <?php include('templates/footer.php'); ?>  
+    <p class="admin"><a href="index.php?action=connexionAdmin">Espace administrateur</a></p> 
 </div>
 <?php $content = ob_get_clean(); ?>
 

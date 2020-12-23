@@ -10,9 +10,7 @@
         
     </head>
         
-    <body>
-    
-    
+    <body>    
         <?= $content ?>
         <script src="View/frontend/js/index.js"></script>
     </body>

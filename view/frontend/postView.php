@@ -32,7 +32,7 @@
                 if(isset($_SESSION['username'])) {
                     ?> <p><span class="user"><?php print $_SESSION['username'];?></span></p>
                 <p>
-                    <textarea id="comment" name="comment"  rows="4" cols="150" placeholder="Veuillez saisir votre commentaire içi..."></textarea>  <br>                   
+                <textarea id="comment" name="comment"  rows="4" cols="150" placeholder="Veuillez saisir votre commentaire içi..."> </textarea> <br>                   
                     <input type="submit" id="submit" name="submit" value="Envoyer"><br>                           
                 </p>
                 <?php } else {
@@ -61,7 +61,8 @@
             </div>
         </div>
     </section> 
-    <?php include('templates/footer.php'); ?>        
+    <?php include('templates/footer.php'); ?> 
+    <p class="admin"><a href="index.php?action=connexionAdmin">Espace administrateur</a></p>      
 </div>   
 <?php $content = ob_get_clean(); ?>
  <?php require('templates/html.php'); ?>     
