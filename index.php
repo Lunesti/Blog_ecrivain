@@ -98,18 +98,29 @@ if (isset($_GET['action'])) {
     }
 
     //Connexion
-    elseif ($_GET['action'] == 'connected') {
+    elseif ($_GET['action'] == 'user_connected') {
         if (isset($_POST['username']) && isset($_POST['userpass'])) {
             if (!empty($_POST['username']) && !empty($_POST['userpass'])) {
-                connect($_POST['username'], $_POST['userpass']);
+                connectUser($_POST['username'], $_POST['userpass']);
             } else {
-                print "Veuillez remplir tout les champs !";
+                print "Au moins un des champs est vide !"; 
             }
         } else {
-            print "Les champs n'existent pas";
+            print "Les champs username et userpass n'existent pas";
         }
+    }
 
-    } elseif ( $_GET['action'] == 'adminpost')  {
+        elseif ($_GET['action'] == 'admin_connected') {
+            if (isset($_POST['username']) && isset($_POST['userpass'])) {
+                if (!empty($_POST['username']) && !empty($_POST['userpass'])) {
+                    connectAdmin($_POST['username'], $_POST['userpass']);
+                } else {
+                    print "Au moins un des champs est vide !"; 
+                }
+            } else {
+                print "Les champs username et userpass n'existent pas";
+            }
+    }    elseif ( $_GET['action'] == 'adminpost')  {
 
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             read($_GET['id']);
@@ -120,7 +131,7 @@ if (isset($_GET['action'])) {
   
     //Deconnexion
     elseif($_GET['action'] == 'disconnected') {
-       logOut($_SESSION['username']);
+       logOut();
     }
 }
     

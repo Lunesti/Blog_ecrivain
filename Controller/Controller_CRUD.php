@@ -68,13 +68,3 @@ function deletePost($id) /*On récupère le post à supprimer*/
     header('Location: index.php?action=listPosts');
 }
 
-//Rediriger vers la page Admin
-function adminPage() {
-    $postManager = new PostManager();
-    $posts = $postManager->getPosts();
-    $commentManager = new CommentManager();
-    $comments = $commentManager->getComments();
-    $listReports = $commentManager->showReports();
-    require('View/frontend/adminView.php');
-}
-

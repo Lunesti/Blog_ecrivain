@@ -2,7 +2,7 @@
 <?php include('templates/header.php');?>  
         <div class="bloc-page">
             <section class="connexion">
-                <form action="index.php?action=connected" method="post">                    
+                <form action="index.php?action=user_connected" method="post">                    
                     <h2>Connexion à votre espace</h2>
                     <p><img src="public/img/user.png" alt="user"></p>
                     <p>   

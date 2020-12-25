@@ -3,7 +3,7 @@
 
         <div class="bloc-page">
             <section class="connexion">
-                <form action="index.php?action=connected" method="post">
+                <form action="index.php?action=admin_connected" method="post">
                 <h2>Espace administrateur</h2>
                 <p><img src="public/img/user.png" alt="user"></p>
                     <p>                  
