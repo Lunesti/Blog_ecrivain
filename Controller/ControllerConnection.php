@@ -1,5 +1,5 @@
 <?php
-require_once('Model/userManager.php');
+require_once('Model/UserManager.php');
 require_once('Model/PostManager.php');
 require_once('Model/CommentManager.php');
 
@@ -53,7 +53,6 @@ function connectAdmin($pseudo, $pass) {
         } else {   
             
             $_SESSION['username'] = $_POST['username'];
-            setcookie('user', $_SESSION['username']);
             $_SESSION['user_role'] = $login['user_role'];
             if ($_SESSION['user_role'] == 'admin') {  
                     $_SESSION['loggedin'] = true; 
@@ -90,5 +89,5 @@ function adminPage() {
     $commentManager = new CommentManager();
     $comments = $commentManager->getComments();
     $listReports = $commentManager->showReports();
-    require('View/frontend/adminView.php');
+    require('View/frontend/AdminView.php');
 }

@@ -1,7 +1,7 @@
 <?php
 
 require_once('model/Manager.php');
-require_once('Entity/Comments.php');
+require_once('Entity/Comment.php');
 
 class CommentManager {
 

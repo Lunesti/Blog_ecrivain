@@ -4,32 +4,28 @@
 <?php include('templates/header.php');?>        
 <div class='bloc-page'>
     <?php include('templates/intro.php');?>
-     <section class="posts">
-        <div class="chapters">
-            <div class="content">
-
-           <?php if(isset($_SESSION['username'])) {
-                        if ($_SESSION['user_role'] == 'admin') {
-                            ?>
-                         <p><a href="index.php?action=admin">Page d'administration</a></p>
+        <section class="posts">
+            <article class="chapters">
+                <div class="content">
+                    <?php if(isset($_SESSION['username'])) {
+                        if ($_SESSION['user_role'] == 'admin') { ?>
+                        <p><a href="index.php?action=admin">Page d'administration</a></p>
+                        <?php } }
+                    ?>
+                    <br><br>
+                    <?php foreach
+                        ($listposts as $data) : 
+                    ?>
+                        <p class="title"><?= htmlspecialchars_decode($data->title); ?>  <span class="date"> le <?= $data->creation_date_fr; ?> </span></p>
+                        <p class="content">   <?= htmlspecialchars_decode(substr($data->content,0,500)) .'...'; ?></p>
+                        <p><a class="chapter" href="index.php?action=post&amp;id=<?= $data->id ?>">Lire la suite</a></p> 
+                    <br />
                         <?php
-                            }
-                        }
-                        ?>
-                        <br><br>
-            <?php foreach
-                ($listposts as $data) : 
-             ?>
-                <p class="title"><?= htmlspecialchars_decode($data->title); ?>  <span class="date"> le <?= $data->creation_date_fr; ?> </span></p>
-               <p class="content">   <?= htmlspecialchars_decode(substr($data->content,0,500)) .'...'; ?></p>
-                <p><a class="chapter" href="index.php?action=post&amp;id=<?= $data->id ?>">Lire la suite</a></p> 
-                <br />
-                <?php
-                endforeach
-             ?>
-            </div>    
-        </div>                  
-    </section>
+                        endforeach
+                    ?>
+                </div>    
+            </article>                  
+        </section>
     <?php include('templates/footer.php'); ?>  
     <p class="admin"><a href="index.php?action=connexionAdmin">Espace administrateur</a></p> 
 </div>

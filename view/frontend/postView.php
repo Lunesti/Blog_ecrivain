@@ -4,7 +4,7 @@
 <div class="bloc-page">
     <?php include('templates/intro.php');?>
     <section class="posts">
-            <div class="chapters">
+            <article class="chapters">
                 <div class="content">
           
                 <p class="return_post"><a href="index.php">&#x2190; Retour à la liste des billets</a></p>
@@ -47,7 +47,7 @@
                 <p><strong>    <?php
                 ?>  <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="date">le  <?= $data->comment_date_fr?></span></p>
         
-                <p>
+                <p><!-- si le commentaire est signalé, on modifie le champs -->
                 <?php if($data->report == 1) {
                     ?>
                     <p><?=nl2br(htmlspecialchars_decode($data->comment)) ?> <span class="report">(commentaire signalé)</span></p> 
@@ -58,7 +58,7 @@
                 <?php
                     endforeach;
                 ?>      
-            </div>
+            </article>
         </div>
     </section> 
     <?php include('templates/footer.php'); ?> 

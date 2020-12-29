@@ -3,10 +3,10 @@ session_start();
 
 ini_set('display_errors', 'on');
 
-require('Controller/Controller_CRUD.php');
-require('Controller/Controller_subscribe.php');
-require('Controller/Controller_connexion.php');
-require('Controller/Controller_comment.php');
+require('Controller/ControllerCRUD.php');
+require('Controller/ControllerSubscribe.php');
+require('Controller/ControllerConnection.php');
+require('Controller/ControllerComment.php');
 
 //Afficher les posts
 if (isset($_GET['action'])) {
