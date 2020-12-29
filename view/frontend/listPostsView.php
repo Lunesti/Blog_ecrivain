@@ -5,8 +5,7 @@
 <div class='bloc-page'>
     <?php include('templates/intro.php');?>
         <section class="posts">
-            <article class="chapters">
-                <div class="content">
+            <article>
                     <?php if(isset($_SESSION['username'])) {
                         if ($_SESSION['user_role'] == 'admin') { ?>
                         <p><a href="index.php?action=admin">Page d'administration</a></p>
@@ -22,8 +21,7 @@
                     <br />
                         <?php
                         endforeach
-                    ?>
-                </div>    
+                    ?>   
             </article>                  
         </section>
     <?php include('templates/footer.php'); ?>  
