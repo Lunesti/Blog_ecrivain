@@ -1,6 +1,6 @@
 <?php
 
-class Comments {
+class Comment {
 
     //Attributs  
     private $_id;
