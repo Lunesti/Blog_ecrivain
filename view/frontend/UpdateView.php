@@ -1,5 +1,12 @@
 <?php ob_start(); ?>
-<?php include('templates/header.php');?>        
+<?php include('templates/header.php');?> 
+<script src="https://cdn.tiny.cloud/1/cmdzeda6yrj1wga8di8rs07wq89ifems1i96r1egmjefib9u/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+   });</script>       
 <div class='bloc-page'>
 
             <h3>Modifiez un billet existant à l'aide des champs ci-dessous :</h3>
