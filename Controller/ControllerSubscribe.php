@@ -1,9 +1,9 @@
 <?php
-require_once('Model/userManager.php');
+require_once('Model/UserManager.php');
 require_once('Model/PostManager.php');
 
 function subscribe($pseudo, $pass, $email) {  //Inscription
-    $subscribe = new Users($pseudo, $pass, $email);
+    $subscribe = new User($pseudo, $pass, $email);
     $subscribe->setPseudo($pseudo);
     $subscribe->setPass($pass);
     $subscribe->setEmail($email);
