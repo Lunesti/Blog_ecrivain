@@ -1,8 +1,8 @@
 <?php $title = "Blog de Jean Forteroche"?>
 <?php ob_start(); ?>
-<?php include('templates/header.php');?>            
+<?php include('templates/Header.php');?>            
 <div class="bloc-page">
-    <?php include('templates/intro.php');?>
+    <?php include('templates/Intro.php');?>
     <section class="posts">
             <article>
           
@@ -47,13 +47,12 @@
                     <br>
                     
                     <?php foreach($comment as $data) :  ?>
-                    <p><strong>    <?php
-                    ?>  <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="date">le  <?= $data->comment_date_fr?></span></p>
+                    <p><strong> <?= htmlspecialchars_decode($data->author) ?>, </strong> <span class="date">le  <?= $data->comment_date_fr?></span></p>
             
                     <p>
                     <?php if($data->report == 1) {
                         ?>
-                        <p><?=nl2br(htmlspecialchars_decode($data->comment)) ?> <span class="report">(commentaire signalé)</span></p> 
+                        <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <span class="report">(commentaire signalé)</span></p> 
                     <?php } else {  ?>
                         <p><?= nl2br(htmlspecialchars_decode($data->comment)) ?> <a href="index.php?action=report&amp;id=<?= $data->id ?>"> Signaler</a></p> 
                     <?php } ?>
@@ -64,9 +63,9 @@
      
         </article>
     </section> 
-    <?php include('templates/footer.php'); ?> 
+    <?php include('templates/Footer.php'); ?> 
     <p class="admin"><a href="index.php?action=connexionAdmin">Espace administrateur</a></p>      
 </div>   
 <?php $content = ob_get_clean(); ?>
- <?php require('templates/html.php'); ?>     
+ <?php require('templates/Html.php'); ?>     
   

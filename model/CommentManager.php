@@ -25,7 +25,7 @@ class CommentManager {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
         $req = $db->query('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comment ORDER BY comment_date DESC');
-        $req->setFetchMode(\PDO::FETCH_CLASS, Comments::class);
+        $req->setFetchMode(\PDO::FETCH_CLASS, Comment::class);
         $comments = $req->fetchAll();
         return $comments;
     }
@@ -36,7 +36,7 @@ class CommentManager {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
         $req = $db->prepare('SELECT id, author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comment WHERE post_id = ? ORDER BY comment_date DESC');
-        $req->setFetchMode(\PDO::FETCH_CLASS, Comments::class);
+        $req->setFetchMode(\PDO::FETCH_CLASS, Comment::class);
         $req->execute(array($postId));
         $comment = $req->fetchAll();
         return $comment;
@@ -60,7 +60,7 @@ class CommentManager {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
         $req = $db->query("SELECT id, author, comment, report FROM comment WHERE report = 1");
-        $req->setFetchMode(\PDO::FETCH_CLASS, Comments::class);
+        $req->setFetchMode(\PDO::FETCH_CLASS, Comment::class);
         $listReports = $req->fetchAll();
         return $listReports;
     }

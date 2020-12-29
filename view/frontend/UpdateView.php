@@ -1,6 +1,6 @@
 <?php $title = "Blog de Jean Forteroche"?>
 <?php ob_start(); ?>
-<?php include('templates/header.php');?> 
+<?php include('templates/Header.php');?> 
 <script src="https://cdn.tiny.cloud/1/cmdzeda6yrj1wga8di8rs07wq89ifems1i96r1egmjefib9u/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({
@@ -19,5 +19,5 @@
                 <p><input type="submit"></p>
             </form>
 <?php $content = ob_get_clean(); ?>
-<?php include('templates/html.php'); ?>   
-<?php include('templates/footer.php'); ?>   
+<?php include('templates/Html.php'); ?>   
+<?php include('templates/Footer.php'); ?>   

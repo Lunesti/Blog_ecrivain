@@ -19,13 +19,13 @@ class Members {
         return $subscribe;
     }
 
-    public function connexion($pseudo) {
+    public function connection($account) {
         //  Récupération de l'utilisateur et de son pass haché
         $connexion = new Manager();
         $db = $connexion->dbConnect();
         $req = $db->prepare('SELECT id, user_role, pass FROM members WHERE pseudo = :pseudo');
-        $login = $req->execute(array(/*$username*/
-            "pseudo"=> $pseudo->getPseudo()
+        $login = $req->execute(array(
+            "pseudo"=> $account->getPseudo()
         ));
         $login = $req->fetch();
         return $login;

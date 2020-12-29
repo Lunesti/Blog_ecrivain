@@ -7,7 +7,7 @@ require_once('Model/CommentManager.php');
 function addComment($postId, $author, $comment) //Contenu de la variable $comments
 {
     /*Création d'un nouvel objet Comments*/
-    $comments = new Comments($postId, $author, $comment);
+    $comments = new Comment($postId, $author, $comment);
     /*On crée une nouvelle instance de Comments, et on appel les setters en leur passant les variables auteur et commentaire*/
     $comments->setAuthor($author);
     $comments->setComment($comment);

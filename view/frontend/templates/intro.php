@@ -7,5 +7,5 @@
     <p class="writer">Jean FORTEROCHE</p>
 </section>
 <div class="banniere">
-    <img src="public/img/banniere.jpg" alt="banniere">
+    <img src="Public/img/banniere.jpg" alt="banniere">
 </div>

@@ -1,9 +1,9 @@
 <?php $title = "Blog de Jean Forteroche"?>
 
 <?php ob_start(); ?>
-<?php include('templates/header.php');?>        
+<?php include('templates/Header.php');?>        
 <div class='bloc-page'>
-    <?php include('templates/intro.php');?>
+    <?php include('templates/Intro.php');?>
         <section class="posts">
             <article>
                     <?php if(isset($_SESSION['username'])) {
@@ -24,12 +24,12 @@
                     ?>   
             </article>                  
         </section>
-    <?php include('templates/footer.php'); ?>  
+    <?php include('templates/Footer.php'); ?>  
     <p class="admin"><a href="index.php?action=connexionAdmin">Espace administrateur</a></p> 
 </div>
 <?php $content = ob_get_clean(); ?>
 
-<?php include('templates/html.php'); ?>   
+<?php include('templates/Html.php'); ?>   
  
 
 

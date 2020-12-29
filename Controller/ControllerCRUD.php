@@ -8,7 +8,7 @@ function readAll()
     //Afficher les posts
     $postManager = new PostManager();
     $listposts = $postManager->getPosts();
-    require('View/frontend/listPostsView.php');
+    require('View/frontend/ListPostsView.php');
 }
 
 function read($id) 
@@ -20,7 +20,7 @@ function read($id)
     $post = $postManager->getPost($postId);
     $commentManager = new CommentManager();
     $comment = $commentManager->getComment($_GET['id']); 
-    require('View/frontend/postView.php');
+    require('View/frontend/PostView.php');
 }
 
 function create($title, $content) 
@@ -57,7 +57,7 @@ function updatePage($id) //Je récupère l'id du post à modifier
     /*On passe en paramètre $updatePost qui contient l'id du post à modifier*/
     $postManager = new PostManager(); 
     $post = $postManager->getPost($updatePage);
-    require("View/frontend/updateView.php");
+    require("View/frontend/UpdateView.php");
 }
 
 function deletePost($id) /*On récupère le post à supprimer*/

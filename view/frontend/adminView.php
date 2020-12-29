@@ -12,7 +12,7 @@
       plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
       toolbar_mode: 'floating',
    });</script>
-<?php include('templates/header.php');?>    
+<?php include('templates/Header.php');?>    
 <div class='bloc-page'>
 <h2>Page d'administration</h2>
 
@@ -43,10 +43,7 @@
     <section class="posts">
         <div class="chapters">
             <div class="content">
-           
-            
-
-            <p class="title"> Liste des chapitres</p>
+                <p class="title"> Liste des chapitres</p>
                 <?php foreach 
                 ($posts as $data) : 
                  ?>
@@ -60,12 +57,12 @@
             </div>    
         </div>         
     </section> 
-    <?php include('templates/footer.php'); ?>  
+    <?php include('templates/Footer.php'); ?>  
     
 </div> 
 
 <?php $content = ob_get_clean(); ?>
-<?php include('templates/html.php'); ?>  
+<?php include('templates/Html.php'); ?>  
 
 
 
