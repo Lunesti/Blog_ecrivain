@@ -35,7 +35,7 @@ function connectUser($pseudo, $pass) {  //Connexion
 }
 
 function connectAdmin($pseudo, $pass) {
-    $connexion = new Users();
+    $connexion = new User();
     $connexion->setPseudo($pseudo);
     $postManager = new PostManager();
     $listposts =  $postManager->getPosts(); 
