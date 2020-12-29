@@ -52,7 +52,7 @@ header p {
     color: purple;
 }
 
-.content a {
+article a {
     color: purple;
     text-decoration: none;
 }
@@ -161,9 +161,7 @@ p.writer {
     overflow: hidden;
 }*/
 
-
 /*Lien vers commentaires*/
-
 
 /*page postview*/
 
