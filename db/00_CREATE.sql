@@ -1,14 +1,15 @@
-DROP TABLE `posts`;
+
+DROP TABLE IF EXISTS `posts`;
 CREATE TABLE IF NOT EXISTS `posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
   `content` text NOT NULL,
   `creation_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=192 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
 
-
-CREATE TABLE `comment` (
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `post_id` int(11) NOT NULL,
   `author` varchar(255) NOT NULL,
@@ -16,12 +17,11 @@ CREATE TABLE `comment` (
   `comment_date` datetime NOT NULL,
   `report` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `post_id` (`post_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8;
+  KEY `comment_ibfk_2` (`post_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8;
 
-
-
-CREATE TABLE `members` (
+DROP TABLE IF EXISTS `members`;
+CREATE TABLE IF NOT EXISTS `members` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(255) CHARACTER SET latin1 NOT NULL,
   `user_role` enum('admin','user') CHARACTER SET latin1 NOT NULL DEFAULT 'user',
@@ -29,4 +29,4 @@ CREATE TABLE `members` (
   `email` varchar(255) CHARACTER SET latin1 NOT NULL,
   `inscription_date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
