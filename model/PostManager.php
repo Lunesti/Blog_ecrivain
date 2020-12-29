@@ -8,17 +8,10 @@ class PostManager
     //Afficher les posts
     public function getPosts()
     {
-        /*Connexion à la base*/
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        /*..*/
-
-        /*Requête*/
         $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date_fr DESC');
-        /*On définit le mode de récupération de la requête
-         Récupérer sous forme d'objet la requete*/
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
-        /*Fetch* All pour récupérer tout ce dont on a besoin*/
         $posts = $req->fetchAll();
         return $posts;
     }
@@ -28,14 +21,10 @@ class PostManager
     {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-         /*Récupère le champs id, titre et contenu de la table post lorsque l'id = ?*/
         $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = :id');
-        //On passe dans le array l'id du post
         $req->execute(array(
             "id" => $id->getId()
         ));
-        /*On définit le mode de récupération de la requête
-         Récupérer sous forme d'objet la requete*/
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         $post = $req->fetch();
         return $post;
@@ -43,10 +32,9 @@ class PostManager
 
     //Ajouter un nouvel article
     public function addPost($newPost)
-    { //$newPost est un nouvel objet qui va contenir le titre et le contenu
+     {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        /*Assigner aux marqueurs nominatifs l'objet $post qui appel le getter titre et contenu*/
         $post = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES( :title, :content, NOW())');
         $post->execute(array(
             "title" => $newPost->getTitle(),
@@ -56,14 +44,12 @@ class PostManager
     }
 
     //Modifier un article
-    public function updatePost($post)
-    { //$post est notre nouvel objet qui va contenir le titre et le contenu
+    public function updatePost($post) 
+    {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        /*Modifie dans la table posts : le titre, le contenu quand l'id = ?*/
         $update = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
         $update->execute(array(
-            /*Assigner aux marqueurs nominatifs l'objet $post qui appel le getter titre, contenu et id */
             "id"=> $post->getId(),
             "title"=> $post->getTitle(),
             "content"=> $post->getContent()
@@ -73,11 +59,10 @@ class PostManager
     }
 
     //Supprimer un article
-    public function deletePost($id)
+    public function deletePost($id) 
     {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        /*Supprime dans la table posts quand l'id = ? */
         $req = $db->prepare('DELETE FROM posts WHERE id = :id');
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         $delete = $req->execute(array(
