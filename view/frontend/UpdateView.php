@@ -1,3 +1,4 @@
+<?php $title = "Blog de Jean Forteroche"?>
 <?php ob_start(); ?>
 <?php include('templates/header.php');?> 
 <script src="https://cdn.tiny.cloud/1/cmdzeda6yrj1wga8di8rs07wq89ifems1i96r1egmjefib9u/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
