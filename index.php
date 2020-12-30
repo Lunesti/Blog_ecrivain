@@ -30,7 +30,7 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'newPost') {
         if (isset($_POST['title']) && isset($_POST['content'])) {
             if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                create($_POST['title'], $_POST['content']);
+                create($_POST['title'], strip_tags($_POST['content']));
             } else {
                 print "Veuillez remplir tout les champs !";
             }
@@ -94,7 +94,11 @@ if (isset($_GET['action'])) {
 
     //Afficher la page Admin
     elseif($_GET['action'] == 'admin') {
-        adminPage();
+        if(isset($_SESSION['loggedin'])) {
+            adminPage();
+        } else {
+            header('Location:index.php?action=listPosts');
+        }
     }
 
     //Connexion
