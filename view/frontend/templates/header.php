@@ -8,13 +8,11 @@
         <ul class ="navigation">
             <li><a href="index.php">Accueil</a></li>
             <?php
-            if(isset($_SESSION['loggedin'])) {
-               if($_SESSION['loggedin'] === true) {?>
+            if(isset($_SESSION['username'])) {
+               ?>
                     <li><a href="index.php?action=disconnected">Deconnexion</a></li>
           <?php  
-            }
             }else {
-               
                 ?>
                    <li><a href="index.php?action=connexion">Connectez-vous </a> <br></li>
               <?php 

@@ -94,7 +94,7 @@ if (isset($_GET['action'])) {
 
     //Afficher la page Admin
     elseif($_GET['action'] == 'admin') {
-        if(isset($_SESSION['loggedin'])) {
+        if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') {
             adminPage();
         } else {
             header('Location:index.php?action=listPosts');

@@ -17,8 +17,7 @@ function connectUser($pseudo, $pass) {  //Connexion
     } else {
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['user_role'] = $login['user_role'];
-        if ($_SESSION['user_role'] == 'user') {
-            $_SESSION['loggedin'] = true;     
+        if ($_SESSION['user_role'] == 'user') {    
              header('Location:index.php?action=listPosts');
         } else {
              print "Si vous êtes un admin, veuillez utiliser votre espace dédié";
@@ -41,7 +40,6 @@ function connectAdmin($pseudo, $pass) {
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['user_role'] = $login['user_role'];
         if ($_SESSION['user_role'] == 'admin') {  
-            $_SESSION['loggedin'] = true; 
             header('Location:index.php?action=admin');
         } else{
             print "Vous n'êtes pas admin. Veuillez vous diriger vers le menu de connexion en haut du site pour vous connecter";
@@ -76,3 +74,5 @@ function adminPage() {
     $listReports = $commentManager->showReports();
     require('View/frontend/AdminView.php');
 }
+
+
