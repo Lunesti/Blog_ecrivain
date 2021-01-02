@@ -1,5 +1,6 @@
 
-CREATE TABLE `posts` (
+DROP TABLE IF EXISTS 'post';
+CREATE TABLE `post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
   `content` text NOT NULL,
@@ -7,6 +8,7 @@ CREATE TABLE `posts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS 'comment';
 CREATE TABLE `comment` (
   `id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
@@ -17,8 +19,8 @@ CREATE TABLE `comment` (
   FOREIGN KEY 'post_id' REFERENCES posts('id') ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-CREATE TABLE `members` (
+DROP TABLE IF EXISTS 'member';
+CREATE TABLE `member` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(255) CHARACTER SET latin1 NOT NULL,
   `user_role` enum('admin','user') CHARACTER SET latin1 NOT NULL DEFAULT 'user',

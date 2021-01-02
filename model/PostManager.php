@@ -10,7 +10,7 @@ class PostManager
     {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date_fr DESC');
+        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM post ORDER BY creation_date_fr DESC');
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         $posts = $req->fetchAll();
         return $posts;
@@ -21,7 +21,7 @@ class PostManager
     {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = :id');
+        $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM post WHERE id = :id');
         $req->execute(array(
             "id" => $id->getId()
         ));
@@ -35,7 +35,7 @@ class PostManager
      {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $post = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES( :title, :content, NOW())');
+        $post = $db->prepare('INSERT INTO post(title, content, creation_date) VALUES( :title, :content, NOW())');
         $post->execute(array(
             "title" => $newPost->getTitle(),
             "content" => $newPost->getContent()
@@ -48,7 +48,7 @@ class PostManager
     {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $update = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
+        $update = $db->prepare('UPDATE post SET title = :title, content = :content WHERE id = :id');
         $update->execute(array(
             "id"=> $post->getId(),
             "title"=> $post->getTitle(),
@@ -63,7 +63,7 @@ class PostManager
     {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $req = $db->prepare('DELETE FROM posts WHERE id = :id');
+        $req = $db->prepare('DELETE FROM post WHERE id = :id');
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         $delete = $req->execute(array(
             "id" => $id

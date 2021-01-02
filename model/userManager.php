@@ -9,7 +9,7 @@ class Members {
     public function newUser($user) {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $req = $db->prepare('INSERT INTO members(pseudo, pass, email, inscription_date) VALUES(:pseudo, :pass, :email, CURDATE())');
+        $req = $db->prepare('INSERT INTO member(pseudo, pass, email, inscription_date) VALUES(:pseudo, :pass, :email, CURDATE())');
         $pass_hache = password_hash($user->getPass(), PASSWORD_DEFAULT);
         $subscribe = $req->execute(array(
             "pseudo"=> $user->getPseudo(),
@@ -23,7 +23,7 @@ class Members {
         //  Récupération de l'utilisateur et de son pass haché
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $req = $db->prepare('SELECT id, user_role, pass FROM members WHERE pseudo = :pseudo');
+        $req = $db->prepare('SELECT id, user_role, pass FROM member WHERE pseudo = :pseudo');
         $login = $req->execute(array(
             "pseudo"=> $account->getPseudo()
         ));
