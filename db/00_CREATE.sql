@@ -1,6 +1,5 @@
 
-DROP TABLE IF EXISTS `posts`;
-CREATE TABLE IF NOT EXISTS `posts` (
+CREATE TABLE `posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
   `content` text NOT NULL,
@@ -8,20 +7,18 @@ CREATE TABLE IF NOT EXISTS `posts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `comment`;
-CREATE TABLE IF NOT EXISTS `comment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `author` varchar(255) NOT NULL,
   `comment` text NOT NULL,
   `comment_date` datetime NOT NULL,
-  `report` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `comment_ibfk_2` (`post_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8;
+  `report` tinyint(1) DEFAULT '0'
+  FOREIGN KEY 'post_id' REFERENCES posts('id') ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `members`;
-CREATE TABLE IF NOT EXISTS `members` (
+
+CREATE TABLE `members` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(255) CHARACTER SET latin1 NOT NULL,
   `user_role` enum('admin','user') CHARACTER SET latin1 NOT NULL DEFAULT 'user',
