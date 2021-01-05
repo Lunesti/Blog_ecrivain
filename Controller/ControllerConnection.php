@@ -21,6 +21,8 @@ function connectUser($pseudo, $pass) {  //Connexion
              header('Location:index.php?action=listPosts');
         } else {
              print "Si vous êtes un admin, veuillez utiliser votre espace dédié";
+             $_SESSION = array();
+             session_destroy();
         }
     }
 }
@@ -43,6 +45,8 @@ function connectAdmin($pseudo, $pass) {
             header('Location:index.php?action=admin');
         } else{
             print "Vous n'êtes pas admin. Veuillez vous diriger vers le menu de connexion en haut du site pour vous connecter";
+            $_SESSION = array();
+            session_destroy();
         }
     }
 }
