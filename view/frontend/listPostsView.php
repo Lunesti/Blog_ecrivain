@@ -5,6 +5,7 @@
 <div class='bloc-page'>
     <?php include('templates/Intro.php');?>
         <section class="posts">
+        <h2>Billet simple pour l'Alaska</h2>
             <article>
                     <?php if(isset($_SESSION['username'])) {
                         if ($_SESSION['user_role'] == 'admin') { ?>
@@ -15,7 +16,7 @@
                     <?php foreach
                         ($listposts as $data) : 
                     ?>
-                        <p class="title"><?= htmlspecialchars_decode($data->title); ?>  <span class="date"> le <?= $data->creation_date_fr; ?> </span></p>
+                        <h3><?= htmlspecialchars_decode($data->title); ?>  <span class="date"> le <?= $data->creation_date_fr; ?> </span></h3>
                         <p class="content">   <?= htmlspecialchars_decode(substr($data->content,0,500)) .'...'; ?></p>
                         <p><a class="chapter" href="index.php?action=post&amp;id=<?= $data->id ?>">Lire la suite</a></p> 
                     <br />

@@ -8,7 +8,7 @@
             <p class="return_post"><a href="index.php">&#x2190; Retour à la liste des billets</a></p>
             <br>
                     
-            <p class="title"><?= htmlspecialchars_decode(substr($post->title,0,200))?><span> le <?= $post->creation_date_fr ?></span></p>
+            <h3><?= htmlspecialchars_decode(substr($post->title,0,200))?><span> le <?= $post->creation_date_fr ?></span></h3>
             <p class="element"><span><?= nl2br(htmlspecialchars_decode($post->content)) ?></span></p>
 
             <?php 
