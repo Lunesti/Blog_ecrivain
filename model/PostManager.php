@@ -10,7 +10,7 @@ class PostManager
     {
         $connexion = new Manager();
         $db = $connexion->dbConnect();
-        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM post ORDER BY creation_date_fr DESC');
+        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM post ORDER BY creation_date DESC');
         $req->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         $posts = $req->fetchAll();
         return $posts;
