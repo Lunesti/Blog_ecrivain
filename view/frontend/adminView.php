@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 
 <?php/* if(isset($_COOKIE['user'])) {
     print 'Votre ID de session est le ' . $_COOKIE['user'];
 } else {
     print "cookie inexistant";} */?>
-    <?php $title = "Blog de Jean Forteroche";?>
+    <?php $title = "Blog de Jean Forteroche"?>
 
 <?php ob_start(); ?>
 <script src="https://cdn.tiny.cloud/1/cmdzeda6yrj1wga8di8rs07wq89ifems1i96r1egmjefib9u/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
