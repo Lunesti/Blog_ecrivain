@@ -10,7 +10,7 @@
             <?php
             if(isset($_SESSION['username'])) {
                ?>
-                    <li><a href="index.php?action=disconnected">Deconnexion</a></li>
+                <li><a href="index.php?action=disconnected">Deconnexion</a></li>
           <?php  
             }else {
                 ?>
