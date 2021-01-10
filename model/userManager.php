@@ -4,7 +4,7 @@ require_once('model/Manager.php');
 require_once('Entity/Post.php');
 require_once('Entity/User.php');
 
-class Members {
+class UserManager {
 
     public function newUser($user) {
         $connexion = new Manager();

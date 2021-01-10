@@ -8,7 +8,7 @@ function connectUser($pseudo, $pass) {  //Connexion
     $newUser->setPseudo($pseudo);
     $newUser->setPass($pass);
 
-    $member = new Members();
+    $member = new UserManager();
     $login = $member->connection($newUser);
 
     $isPasswordCorrect = password_verify($pass, $login['pass']);  
@@ -32,7 +32,7 @@ function connectAdmin($pseudo, $pass) {
     $connected->setPseudo($pseudo);
     $connected->setPass($pass);
 
-    $member = new Members();
+    $member = new UserManager();
     $login = $member->connection($connected);
 
     $isPasswordCorrect = password_verify($pass, $login['pass']);  
@@ -80,3 +80,4 @@ function adminPage() {
 }
 
 
+	
