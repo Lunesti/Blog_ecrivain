@@ -8,7 +8,7 @@
         <ul class ="navigation">
             <li><a href="index.php">Accueil</a></li>
             <?php
-            if(isset($_SESSION['username']) && $_SESSION['user_role'] = 'admin' || $_SESSION['user_role'] = 'user') {
+            if(isset($_SESSION['username'])) {
                ?>
                     <li><a href="index.php?action=disconnected">Deconnexion</a></li>
           <?php  
