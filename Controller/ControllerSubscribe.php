@@ -7,7 +7,7 @@ function subscribe($pseudo, $pass, $email) {  //Inscription
     $subscribe->setPseudo($pseudo);
     $subscribe->setPass($pass);
     $subscribe->setEmail($email);
-    $membersManager = new Members();
+    $membersManager = new UserManager();
     $newUser = $membersManager->newUser($subscribe);
     header('Location: index.php?action=listPosts');
 }
