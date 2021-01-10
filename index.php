@@ -30,7 +30,7 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'newPost') {
         if (isset($_POST['title']) && isset($_POST['content'])) {
             if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                create($_POST['title'], strip_tags($_POST['content']));
+                create($_POST['title'], $_POST['content']);
             } else {
                 print "Veuillez remplir tout les champs !";
             }
