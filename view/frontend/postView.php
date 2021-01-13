@@ -63,7 +63,7 @@
         </article>
     </section> 
     <?php include('templates/Footer.php'); ?> 
-    <p class="admin"><a href="index.php?action=connexionAdmin">Espace administrateur</a></p>      
+    <p class="admin"><a href="index.php?action=connectionAdmin">Espace administrateur</a></p>      
 </div>   
 <?php $content = ob_get_clean(); ?>
  <?php require('templates/Html.php'); ?>     

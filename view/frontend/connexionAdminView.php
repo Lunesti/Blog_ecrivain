@@ -3,7 +3,7 @@
 <?php include('templates/Header.php');?>   
 
         <div class="bloc-page">
-            <section class="connexion">
+            <section class="connection">
                 <form action="index.php?action=admin_connected" method="post">
                 <h2>Espace administrateur</h2>
                 <p><img src="public/img/user.png" alt="user"></p>

@@ -17,7 +17,7 @@
                         ($listposts as $data) : 
                     ?>
                         <h3><?= htmlspecialchars_decode($data->title); ?>  <span class="date"> le <?= $data->creation_date_fr; ?> </span></h3>
-                        <p class="content">   <?= htmlspecialchars_decode(substr($data->content,0,500)) .'...'; ?></p>
+                        <p class="content">  <?= htmlspecialchars_decode(substr($data->content,0,500)) .'...'; ?></p>
                         <p><a class="chapter" href="index.php?action=post&amp;id=<?= $data->id ?>">Lire la suite</a></p> 
                     <br />
                         <?php
@@ -26,7 +26,7 @@
             </article>                  
         </section>
     <?php include('templates/Footer.php'); ?>  
-    <p class="admin"><a href="index.php?action=connexionAdmin">Espace administrateur</a></p> 
+    <p class="admin"><a href="index.php?action=connectionAdmin">Espace administrateur</a></p> 
 </div>
 <?php $content = ob_get_clean(); ?>
 

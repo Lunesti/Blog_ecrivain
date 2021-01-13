@@ -83,13 +83,13 @@ if (isset($_GET['action'])) {
     }
 
     //Afficher la page de connexion User
-    elseif($_GET['action'] == "connexion") {
-       userConnexion();
+    elseif($_GET['action'] == "connection") {
+       userConnection();
     }
 
     //Afficher la page de connexion Admin
-    elseif($_GET['action'] == "connexionAdmin") {
-        adminConnexion();
+    elseif($_GET['action'] == "connectionAdmin") {
+        adminConnection();
     }
 
     //Afficher la page Admin
